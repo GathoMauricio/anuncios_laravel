@@ -53,7 +53,7 @@ class AnuncioController extends Controller
                 FotoAnuncio::create([
                     'anuncio_id' => $anuncio->id,
                     'ruta' => $nombre,
-                    'descripcion' => $request->descripcion_imagen[$i],
+                    'descripcion' => $request->descripcion_imagen[$i] ? $request->descripcion_imagen[$i] : '',
                 ]);
             }
         }
