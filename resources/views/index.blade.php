@@ -19,7 +19,9 @@
                             </div>
                             <div class="card-body">
                                 <div class="card-body">
-                                    <img src="{{ asset('storage/fotos_anuncios/' . $anuncio->fotos[0]->ruta) }}"
+                                    {{--  <img src="{{ asset('storage/fotos_anuncios/' . $anuncio->fotos[0]->ruta) }}"
+                                        width="100%" height="200">  --}}
+                                    <img src="{{ asset('https://images.adsttc.com/media/images/528c/a1a0/e8e4/4efc/1f00/00c3/newsletter/IMG_6201.jpg') }}"
                                         width="100%" height="200">
                                 </div>
                             </div>
