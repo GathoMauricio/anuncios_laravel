@@ -7,7 +7,8 @@
     <br>
     <h4 class="text-center"><strong>Portal 100% mexicano rápido y eficiente</strong></h4>
     <br>
-    <form class="form">
+    <form class="form" action="{{ route('buscar') }}" method="GET">
+        @csrf
         <div class="container">
             <div class="row p-3" style="background-color: brown">
                 <div class="col-md-3 col-sm-12">

@@ -6,10 +6,11 @@
 
         <div class="container">
             <a href="{{ route('todo') }}" style="float:right;">Ver todos >></a>
-            <h4>Últimos anuncios</h4>
+            <h4>Todos los anuncios</h4>
             <hr>
             <div class="row p-2" style="background-color:#eaeded">
-                @foreach ($anuncios as $key => $anuncio)
+                {{ $anuncios->links('pagination::bootstrap-5') }}
+                @forelse ($anuncios as $key => $anuncio)
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-header">
@@ -28,7 +29,9 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <center>No se encontraron resultados</center>
+                @endforelse
             </div>
 
         </div>

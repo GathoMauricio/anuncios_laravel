@@ -134,4 +134,26 @@ class AnuncioController extends Controller
         $anuncio = Anuncio::find($id);
         return view('anuncio.show', compact('anuncio'));
     }
+
+    public function buscar(Request $request)
+    {
+        $anuncios = new Anuncio;
+        if ($request->categoria_id) {
+            $anuncios = $anuncios->where('categoria_id', $request->categoria_id);
+        }
+        if ($request->estado_id) {
+            $anuncios = $anuncios->where('estado_id', $request->estado_id);
+        }
+        if ($request->municipio_id) {
+            $anuncios = $anuncios->where('categoria_id', $request->municipio_id);
+        }
+        $anuncios = $anuncios->orderBy('id', 'DESC')->paginate(9);
+        return view('anuncio.buscar', compact('anuncios'));
+    }
+
+    public function todo(Request $request)
+    {
+        $anuncios = Anuncio::orderBy('id', 'DESC')->paginate(9);
+        return view('anuncio.todo', compact('anuncios'));
+    }
 }

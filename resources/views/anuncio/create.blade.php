@@ -171,6 +171,8 @@
                 <img src="{{ asset('img/como.png') }}" width="100%">
             </div>
         </div>
+        <br><br>
+        <img src="{{ asset('img/footer.png') }}" width="100%">
     </div>
     <script>
         function municipiosCreate(id) {
