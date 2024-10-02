@@ -135,13 +135,11 @@
                         </div>
                         <br>
                         <div class="row">
-
                             <h6>
                                 <a href="javascript:void(0);" onclick="agregarImagen();" style="float:right;">
                                     + Agregar imagen
                                 </a>
                                 <strong>Imágenes</strong>
-
                             </h6>
                             <hr>
                             <div class="container" id="container_imagenes">
@@ -164,6 +162,10 @@
                         </div>
                     </form>
                 </div>
+                <input accept="image/*" type="file" name="image" id="input" style="display:none" />
+                <button id="btn" style="display:none">Generar imagen</button>
+                <canvas id="canvas" style="display:none">CANVAS</canvas>
+
             </div>
             <div class="col-md-3 p-3" style="background-color:#eaeded">
                 <img src="{{ asset('img/publica.png') }}" width="100%">
@@ -174,6 +176,47 @@
         <br><br>
         <img src="{{ asset('img/footer.png') }}" width="100%">
     </div>
+@endsection
+@section('custom_js')
+    <!-- FABRIC JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fabric"></script>
+    <script>
+        const canvas = new fabric.Canvas("canvas");
+        //canvas.setWidth(innerWidth - 100);
+        //canvas.setHeight(innerHeight - 2 + 00);
+        {{--  var rect = new fabric.Rect({
+            left: 100,
+            top: 100,
+            fill: "red",
+            width: 50,
+            height: 50,
+        });
+        canvas.add(rect);  --}}
+        input.onchange = (evnt) => {
+            const file = evnt.target.files[0];
+            const url = URL.createObjectURL(file);
+            const imgNode = new Image();
+            imgNode.src = url;
+            imgNode.onload = () => {
+                const img = new fabric.Image(imgNode, {
+                    width: 300,
+                    height: 300,
+                    left: 100,
+                    top: 100,
+                    angle: 0,
+                    opacity: 1,
+                });
+                canvas.add(img);
+            };
+        };
+        btn.onclick = () => {
+            const dataURL = canvas.toDataURL("image/png");
+            const a = document.createElement("a");
+            a.download = "yutu";
+            a.href = dataURL;
+            a.click();
+        };
+    </script>
     <script>
         function municipiosCreate(id) {
             $("#cbo_municipio_create").html('<option value>¿Municipio?</option>');

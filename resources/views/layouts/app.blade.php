@@ -101,14 +101,16 @@
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <!-- SELECT 2 -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
     <!-- ALERTIFY -->
     <script src="{{ asset('alertify/alertify.min.js') }}"></script>
+    <!-- FABRIC JS -->
+    <script src="https://unpkg.com/fabric@5.3.0/dist/fabric.min.js"></script>
     <script>
         $(document).ready(function() {
             $(".select2").select2();
         });
     </script>
+    @yield('custom_js')
 </body>
 
 </html>

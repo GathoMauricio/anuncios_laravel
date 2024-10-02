@@ -19,7 +19,8 @@
                 <div class="container">
                     <div class="row">
                         @foreach ($anuncio->fotos as $key => $foto)
-                            <div class="col-md-4">
+                            <div class="col-md-4" onclick="verFoto('{{ asset('storage/fotos_anuncios/' . $foto->ruta) }}')"
+                                style="cursor:pointer;">
                                 <div class="card">
                                     <div class="card-body">
                                         <img src="{{ asset('storage/fotos_anuncios/' . $foto->ruta) }}" width="100%"
@@ -96,4 +97,37 @@
         <br><br>
         <img src="{{ asset('img/footer.png') }}" width="100%">
     </div>
+    @include('anuncio.modal_ver_foto')
+@endsection
+@section('custom_js')
+    <script src="https://cdn.jsdelivr.net/npm/fabric"></script>
+    <script>
+        function verFoto(url_foto) {
+            console.log(url_foto);
+
+            {{--  let canvas = null;
+            canvas = new fabric.Canvas("canvas_modal_ver_foto");
+            canvas.setWidth(document.documentElement.clientWidth - 50);
+            canvas.setHeight(innerHeight);
+            let imgNode = new Image();
+            imgNode.src = url_foto;
+            imgNode.onload = () => {
+                let img = new fabric.Image(imgNode, {
+                    width: document.documentElement.clientWidth - 50,
+                    height: 500,
+                    left: 0,
+                    top: 50,
+                    angle: 0,
+                    opacity: 1,
+                });
+                canvas.add(img);
+            };  --}}
+            $("#img_ver_foto").prop('src', url_foto);
+            $("#modal_ver_foto").css("display", "block");
+        }
+
+        function ocultarFoto() {
+            $("#modal_ver_foto").css("display", "none");
+        }
+    </script>
 @endsection
