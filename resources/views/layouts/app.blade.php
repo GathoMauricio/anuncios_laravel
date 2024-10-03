@@ -13,6 +13,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="{{ asset('font.css') }}" rel="stylesheet" />
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -73,7 +74,7 @@
                                     <a class="dropdown-item  text-danger" href="{{ route('cuenta') }}">
                                         Cuenta
                                     </a>
-                                    <a class="dropdown-item  text-danger" href="#">
+                                    <a class="dropdown-item  text-danger" href="{{ route('mis_anuncios') }}">
                                         Mis anuncios
                                     </a>
                                     @if (Auth::user()->rol_id == 2)

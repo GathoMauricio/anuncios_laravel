@@ -157,4 +157,10 @@ class AnuncioController extends Controller
         $anuncios = Anuncio::where('borrador', 'NO')->orderBy('id', 'DESC')->paginate(9);
         return view('anuncio.todo', compact('anuncios'));
     }
+
+    public function misAnuncios()
+    {
+        $anuncios = Anuncio::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->paginate(9);
+        return view('anuncio.mis_anuncios', compact('anuncios'));
+    }
 }

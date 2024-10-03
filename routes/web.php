@@ -23,6 +23,7 @@ Route::get('/cp/{id?}', [App\Http\Controllers\SepomexController::class, 'cp'])->
 Route::get('/ver_anuncio/{id}', [App\Http\Controllers\AnuncioController::class, 'show'])->name('ver_anuncio');
 Route::get('/buscar', [App\Http\Controllers\AnuncioController::class, 'buscar'])->name('buscar');
 Route::get('/todo', [App\Http\Controllers\AnuncioController::class, 'todo'])->name('todo');
+Route::get('/mis_anuncios', [App\Http\Controllers\AnuncioController::class, 'misAnuncios'])->name('mis_anuncios')->middleware('auth');
 Route::get('/crear_anuncio', [App\Http\Controllers\AnuncioController::class, 'create'])->name('crear_anuncio')->middleware('auth');
 Route::post('/store_anuncio', [App\Http\Controllers\AnuncioController::class, 'store'])->name('store_anuncio')->middleware('auth');
 Route::get('/pago_exitoso/{id}', [App\Http\Controllers\AnuncioController::class, 'pagoExitoso'])->name('pago_exitoso');
