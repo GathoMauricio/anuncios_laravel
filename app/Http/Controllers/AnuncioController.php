@@ -51,6 +51,11 @@ class AnuncioController extends Controller
             'metodo_pago' => 'no disponible',
             'referencia_pago' => 'no disponible',
             'borrador' => ($request->borrador && $request->borrador == 'on') ? 'SI' : 'NO',
+            'recamaras' => $request->recamaras,
+            'banos' => $request->banos,
+            'estacionamiento' => $request->estacionamiento,
+            'antiguedad' => $request->antiguedad,
+            'niveles' => $request->niveles,
         ]);
         //se obtienen las imagenes
         if ($request->file('archivo_imagen')) {
@@ -122,6 +127,11 @@ class AnuncioController extends Controller
             'metodo_pago' => 'no disponible',
             'referencia_pago' => 'no disponible',
             'borrador' => ($request->borrador && $request->borrador == 'on') ? 'SI' : 'NO',
+            'recamaras' => $request->recamaras,
+            'banos' => $request->banos,
+            'estacionamiento' => $request->estacionamiento,
+            'antiguedad' => $request->antiguedad,
+            'niveles' => $request->niveles,
         ]);
         //se obtienen las imagenes
         if ($request->file('archivo_imagen')) {

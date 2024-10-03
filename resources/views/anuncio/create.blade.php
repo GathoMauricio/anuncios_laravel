@@ -60,6 +60,43 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;">Recamaras</label>
+                                    <input type="number" value="0" name="recamaras" min="0"
+                                        class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;">Baños</label>
+                                    <input type="number" value="0" name="banos" min="0" class="form-control"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;">Estacionamiento</label>
+                                    <input type="number" value="0" name="estacionamiento" min="0"
+                                        class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;">Niveles</label>
+                                    <input type="number" value="0" name="niveles" min="0" class="form-control"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;">Antiguedad (<i>Años</i>)</label>
+                                    <input type="number" value="0" name="antiguedad" min="0"
+                                        class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label style="font-weight: bold;">Precio</label>

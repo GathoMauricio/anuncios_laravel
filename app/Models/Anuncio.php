@@ -30,6 +30,11 @@ class Anuncio extends Model
         'metodo_pago',
         'referencia_pago',
         'borrador',
+        'recamaras',
+        'banos',
+        'estacionamiento',
+        'antiguedad',
+        'niveles',
     ];
 
     public function cliente()

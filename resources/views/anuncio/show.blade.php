@@ -16,6 +16,13 @@
                 <hr>
                 <h4>{{ $anuncio->titulo }}</h4>
                 <p>{{ $anuncio->descripcion }}</p>
+                <hr>
+                <strong>Recamaras: </strong>{{ $anuncio->recamaras }} -
+                <strong>Baños: </strong>{{ $anuncio->banos }} -
+                <strong>Estacionamiento: </strong>{{ $anuncio->estacionamiento }} -
+                <strong>Niveles: </strong>{{ $anuncio->niveles }} -
+                <strong>Antiguedad: </strong>{{ $anuncio->antiguedad }} años
+                <hr>
                 <div class="container">
                     <div class="row">
                         @foreach ($anuncio->fotos as $key => $foto)
