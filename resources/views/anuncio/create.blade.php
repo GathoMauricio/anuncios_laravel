@@ -155,9 +155,7 @@
                         <br>
                         <div class="row">
                             <div class="form-group p-2">
-                                <button type="button" onclick="validarCrearAnuncio();" class="btn btn-danger"
-                                    style="background-color: brown;float:right;">Crear
-                                    anuncio</button>
+
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" style="width:60px;height: 30px;" name="borrador"
                                         type="checkbox" id="flexSwitchCheckDefault">
@@ -170,6 +168,21 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" style="width:60px;height: 30px;" name="premium"
+                                        type="checkbox" id="flexSwitchCheckDefault">
+
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">
+                                        <strong>
+                                            &nbsp;&nbsp;&nbsp;
+                                            ¿Hacer Premium?
+                                        </strong>
+                                    </label>
+
+                                </div>
+                                <button type="button" onclick="validarCrearAnuncio();" class="btn btn-danger"
+                                    style="background-color: brown;float:right;">Crear
+                                    anuncio</button>
                             </div>
                         </div>
                     </form>

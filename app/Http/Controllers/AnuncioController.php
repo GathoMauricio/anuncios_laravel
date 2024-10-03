@@ -14,6 +14,16 @@ use App\Models\FotoAnuncio;
 
 class AnuncioController extends Controller
 {
+    public function index()
+    {
+        if (Auth::user()->rol_id == 2) {
+            $anuncios = Anuncio::paginate(3);
+            return view('anuncio.index', compact('anuncios'));
+        } else {
+            return abort(403);
+        }
+    }
+
     public function create()
     {
         $categorias = Categoria::all();
@@ -58,33 +68,39 @@ class AnuncioController extends Controller
                 ]);
             }
         }
-        //Se setea la clave secreta de stripe
-        Stripe::setApiKey(env('STRIPE_SECRET'));
-        //Se crea la sesión de pago
-        $session = Session::create([
-            'client_reference_id' => $anuncio->cliente->id, //se envia el id del cliente
-            'customer_email' => $anuncio->cliente->email,  //se envia el email del cliente
-            'line_items'  => [
-                [
-                    'price_data' => [
-                        'currency'     => 'mxn', //la moneda se calcula en pesos mexicanos
-                        'product_data' => [
-                            'name' => $anuncio->titulo, //se envia el titulo del anuncio
-                            'description' => $anuncio->descripcion, //se envia la descripción del anuncio
+        if ($request->premium && $request->premium == 'on') {
+
+
+            //Se setea la clave secreta de stripe
+            Stripe::setApiKey(env('STRIPE_SECRET'));
+            //Se crea la sesión de pago
+            $session = Session::create([
+                'client_reference_id' => $anuncio->cliente->id, //se envia el id del cliente
+                'customer_email' => $anuncio->cliente->email,  //se envia el email del cliente
+                'line_items'  => [
+                    [
+                        'price_data' => [
+                            'currency'     => 'mxn', //la moneda se calcula en pesos mexicanos
+                            'product_data' => [
+                                'name' => $anuncio->titulo, //se envia el titulo del anuncio
+                                'description' => $anuncio->descripcion, //se envia la descripción del anuncio
+                            ],
+                            'unit_amount'  => 1000, //el monto q se cobrará va a variar según las reglas del sistema
                         ],
-                        'unit_amount'  => 1000, //el monto q se cobrará va a variar según las reglas del sistema
+                        'quantity'   => 1,
                     ],
-                    'quantity'   => 1,
                 ],
-            ],
-            'mode'        => 'payment',
-            //Si la tarjeta pasa redirige a la ruta succes donde actualizamos el estatus del anuncio pasando como parametro el id
-            'success_url' => route('pago_exitoso', $anuncio->id),
-            //Si se cancela la compra o no pasa se redirige a los detalles del anuncio q debe estar pendiente de pago
-            'cancel_url'  => route('ver_anuncio', $anuncio->id),
-        ]);
-        //Se ejecuta el pago en la plataforma de stripe
-        return redirect()->away($session->url);
+                'mode'        => 'payment',
+                //Si la tarjeta pasa redirige a la ruta succes donde actualizamos el estatus del anuncio pasando como parametro el id
+                'success_url' => route('pago_exitoso', $anuncio->id),
+                //Si se cancela la compra o no pasa se redirige a los detalles del anuncio q debe estar pendiente de pago
+                'cancel_url'  => route('ver_anuncio', $anuncio->id),
+            ]);
+            //Se ejecuta el pago en la plataforma de stripe
+            return redirect()->away($session->url);
+        } else {
+            return redirect()->route('ver_anuncio', $anuncio->id);
+        }
     }
 
     public function update(Request $request, $id)

@@ -23,6 +23,7 @@ Route::get('/cp/{id?}', [App\Http\Controllers\SepomexController::class, 'cp'])->
 Route::get('/ver_anuncio/{id}', [App\Http\Controllers\AnuncioController::class, 'show'])->name('ver_anuncio');
 Route::get('/buscar', [App\Http\Controllers\AnuncioController::class, 'buscar'])->name('buscar');
 Route::get('/todo', [App\Http\Controllers\AnuncioController::class, 'todo'])->name('todo');
+Route::get('/anuncios', [App\Http\Controllers\AnuncioController::class, 'index'])->name('anuncios')->middleware('auth');
 Route::get('/mis_anuncios', [App\Http\Controllers\AnuncioController::class, 'misAnuncios'])->name('mis_anuncios')->middleware('auth');
 Route::get('/editar_anuncio/{id}', [App\Http\Controllers\AnuncioController::class, 'editarAnuncio'])->name('editar_anuncio')->middleware('auth');
 Route::get('/crear_anuncio', [App\Http\Controllers\AnuncioController::class, 'create'])->name('crear_anuncio')->middleware('auth');
@@ -34,3 +35,4 @@ Route::get('/subcategorias/{id?}', [App\Http\Controllers\CategoriaController::cl
 Route::get('/cuenta', [App\Http\Controllers\UserController::class, 'cuenta'])->name('cuenta')->middleware('auth');
 Route::put('/actualizar_cuenta', [App\Http\Controllers\UserController::class, 'actualizarCuenta'])->name('actualizar_cuenta')->middleware('auth');
 Route::put('/actualizar_contrasena', [App\Http\Controllers\UserController::class, 'actualizarPassword'])->name('actualizar_contrasena')->middleware('auth');
+Route::get('/usuarios', [App\Http\Controllers\UserController::class, 'index'])->name('usuarios')->middleware('auth');

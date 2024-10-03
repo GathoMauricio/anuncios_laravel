@@ -5,12 +5,13 @@
     <div class="container p3">
         <div class="row p-3">
             <div class="col-md-9 p-3" style="background-color:#eaeded">
-                <h2>Mis anuncios</h2>
+                <h2>Anuncios</h2>
                 {{ $anuncios->links('pagination::bootstrap-5') }}
                 <table class="table">
                     <thead>
                         <tr>
                             <th>Estatus</th>
+                            <th>Usuario</th>
                             <th>Título</th>
                             <th>Descripcion</th>
                             <th>Precio</th>
@@ -22,6 +23,7 @@
                         @forelse($anuncios as $anuncio)
                             <tr>
                                 <td>{{ $anuncio->estatus->nombre }}</td>
+                                <td>{{ $anuncio->cliente->email }}</td>
                                 <td>{{ $anuncio->titulo }}</td>
                                 <td>{{ $anuncio->descripcion }}</td>
                                 <td>${{ $anuncio->precio }}</td>
@@ -32,11 +34,6 @@
                                             <td>
                                                 <a href="{{ route('ver_anuncio', $anuncio->id) }}" title="Ver"
                                                     class="btn btn-primary"><span class="icon icon-eye"></span></a>
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('editar_anuncio', $anuncio->id) }}" title="Editar"
-                                                    class="btn btn-warning" style="color:white"><span
-                                                        class="icon icon-pencil"></span></a>
                                             </td>
                                         </tr>
                                     </table>

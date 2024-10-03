@@ -8,6 +8,16 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        if (Auth::user()->rol_id == 2) {
+            $usuarios = User::paginate(10);
+            return view('usuario.index', compact('usuarios'));
+        } else {
+            return abort(403);
+        }
+    }
+
     public function cuenta()
     {
         $usuario = Auth::user();

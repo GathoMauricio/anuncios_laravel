@@ -78,15 +78,15 @@
                                         Mis anuncios
                                     </a>
                                     @if (Auth::user()->rol_id == 2)
-                                        <a class="dropdown-item  text-danger" href="#">
+                                        <a class="dropdown-item  text-danger" href="{{ route('usuarios') }}">
                                             Usuarios
                                         </a>
-                                        <a class="dropdown-item  text-danger" href="#">
+                                        <a class="dropdown-item  text-danger" href="{{ route('anuncios') }}">
                                             Todos los anuncios
                                         </a>
-                                        <a class="dropdown-item  text-danger" href="#">
+                                        {{--  <a class="dropdown-item  text-danger" href="#">
                                             Categorías
-                                        </a>
+                                        </a>  --}}
                                     @endif
                                     <a class="dropdown-item  text-danger" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
