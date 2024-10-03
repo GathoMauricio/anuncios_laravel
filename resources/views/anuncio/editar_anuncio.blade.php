@@ -2,25 +2,27 @@
 
 @section('content')
     @include('layouts.buscador')
-
-    <div class="container">
-        <div class="row">
+    <div class="container p3">
+        <div class="row p-3">
             <div class="col-md-9 p-3" style="background-color:#eaeded">
                 <div class="container p-3" style="background-color:#eaeded">
-                    <h2> Publicar anuncio</h2>
+                    <h2> Editar anuncio</h2>
                     <hr>
-                    <form action="{{ route('store_anuncio') }}" id="frm_store_anuncio" class="form" method="POST"
-                        enctype='multipart/form-data'>
+                    <form action="{{ route('update_anuncio', $anuncio->id) }}" id="frm_update_anuncio" class="form"
+                        method="POST" enctype='multipart/form-data'>
                         @csrf
+                        @method('PUT')
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label style="font-weight: bold;">Categoría</label>
                                     <select name="categoria_id" id="cbo_categoria_id_create"
-                                        onchange="subcategorias(this.value)" class="form-select select2">
+                                        onchange="subcategorias(this.value)" class="form-select">
                                         <option value>Selecciona una categoría</option>
                                         @foreach ($categorias as $key => $categoria)
-                                            <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                                            <option value="{{ $categoria->id }}"
+                                                @if ($anuncio->categoria_id == $categoria->id) selected @endif>{{ $categoria->nombre }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -28,8 +30,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label style="font-weight: bold;">Subcategoria</label>
-                                    <select name="subcategoria_id" id="cbo_subcategoria_id_create"
-                                        class="form-select select2">
+                                    <select name="subcategoria_id" id="cbo_subcategoria_id_create" class="form-select">
                                         <option value>Selecciona una subcategoría</option>
                                     </select>
                                 </div>
@@ -39,8 +40,9 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label style="font-weight: bold;">Título</label>
-                                    <input type="text" name="titulo" id="txt_titulo_create"
-                                        placeholder="Título de la publicación..." class="form-control" />
+                                    <input type="text" name="titulo" value="{{ $anuncio->titulo }}"
+                                        id="txt_titulo_create" placeholder="Título de la publicación..."
+                                        class="form-control" />
                                     @error('titulo')
                                         <span>{{ $message }}</span>
                                     @enderror
@@ -52,7 +54,7 @@
                                 <div class="form-group">
                                     <label style="font-weight: bold;">Descripción</label>
                                     <textarea name="deescripcion" id="txt_descripcion_create" placeholder="Descripción de la publicación..."
-                                        class="form-control" /></textarea>
+                                        class="form-control" />{{ $anuncio->descripcion }}</textarea>
                                     @error('deescripcion')
                                         <span>{{ $message }}</span>
                                     @enderror
@@ -63,8 +65,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label style="font-weight: bold;">Precio</label>
-                                    <input type="text" name="precio" id="txt_precio_create"
-                                        placeholder="Precio de la publicación..." class="form-control" />
+                                    <input type="text" name="precio" value="{{ $anuncio->precio }}"
+                                        id="txt_precio_create" placeholder="Precio de la publicación..."
+                                        class="form-control" />
                                     @error('precio')
                                         <span>{{ $message }}</span>
                                     @enderror
@@ -74,7 +77,8 @@
                                 <br>
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" style="width:60px;height: 30px;" name="negociable"
-                                        type="checkbox" id="flexSwitchCheckDefault">
+                                        type="checkbox" id="flexSwitchCheckDefault"
+                                        @if ($anuncio->negociable) checked @endif>
                                     <div class="p-2">
                                         <label class="form-check-label" for="flexSwitchCheckDefault">
                                             <strong>
@@ -91,18 +95,20 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group">
-                                    <select name="estado_id" id="cbo_estado_create" class="form-select select2"
+                                    <select name="estado_id" id="cbo_estado_create" class="form-select"
                                         onchange="municipiosCreate(this.value)">
                                         <option value>¿Estado?</option>
                                         @foreach ($estados as $estado)
-                                            <option value="{{ $estado->idestado }}">{{ $estado->estado }}</option>
+                                            <option value="{{ $estado->idestado }}"
+                                                @if ($anuncio->estado_id == $estado->idestado) selected @endif>{{ $estado->estado }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group">
-                                    <select name="municipio_id" id="cbo_municipio_create" class="form-select select2"
+                                    <select name="municipio_id" id="cbo_municipio_create" class="form-select"
                                         onchange="coloniasCreate(this.value)">
                                         <option value>¿Municipio?</option>
                                     </select>
@@ -110,7 +116,7 @@
                             </div>
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group">
-                                    <select name="colonia_id" id="cbo_colonia_create" class="form-select select2"
+                                    <select name="colonia_id" id="cbo_colonia_create" class="form-select"
                                         onchange="cpCreate(this.value)">
                                         <option value>¿Colonia?</option>
                                     </select>
@@ -128,8 +134,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label style="font-weight: bold;">Calle y número</label>
-                                    <input type="text" name="calle_numero" placeholder="Calle y número..."
-                                        id="txt_calle_numero_create" class="form-control" />
+                                    <input type="text" name="calle_numero" value="{{ $anuncio->calle_numero }}"
+                                        placeholder="Calle y número..." id="txt_calle_numero_create"
+                                        class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -155,12 +162,13 @@
                         <br>
                         <div class="row">
                             <div class="form-group p-2">
-                                <button type="button" onclick="validarCrearAnuncio();" class="btn btn-danger"
-                                    style="background-color: brown;float:right;">Crear
+                                <button type="submit" class="btn btn-danger"
+                                    style="background-color: brown;float:right;">Actualizar
                                     anuncio</button>
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" style="width:60px;height: 30px;" name="borrador"
-                                        type="checkbox" id="flexSwitchCheckDefault">
+                                        type="checkbox" id="flexSwitchCheckDefault"
+                                        @if ($anuncio->borrador == 'SI') checked @endif>
                                     <div class="p-2">
                                         <label class="form-check-label" for="flexSwitchCheckDefault">
                                             <strong>
@@ -184,10 +192,12 @@
         <br><br>
         <img src="{{ asset('img/footer.png') }}" width="100%">
     </div>
+    @include('anuncio.modal_ver_foto')
 @endsection
 @section('custom_js')
     <script>
         function municipiosCreate(id) {
+            console.log("carga: " + id);
             $("#cbo_municipio_create").html('<option value>¿Municipio?</option>');
             $("#cbo_colonia_create").html('<option value>Colonia?</option>');
             $("#txt_cp_create").val('');
@@ -226,6 +236,7 @@
         }
 
         function subcategorias(id) {
+
             $("#cbo_subcategoria_id_create").html('<option value>Selecciona una subcategoría</option>');
             if (id.length > 0) {
                 axios.get('{{ route('subcategorias') }}/' + id).then(function(response) {
@@ -237,5 +248,18 @@
                 });
             }
         }
+        $(document).ready(function() {
+            subcategorias("{{ $anuncio->categoria_id }}");
+            municipiosCreate("{{ $anuncio->estado_id }}");
+            setTimeout(function() {
+                $("#cbo_subcategoria_id_create").val({{ $anuncio->subcategoria_id }});
+                $("#cbo_municipio_create").val({{ $anuncio->municipio_id }});
+                coloniasCreate("{{ $anuncio->municipio_id }}");
+                setTimeout(function() {
+                    $("#cbo_colonia_create").val({{ $anuncio->colonia_id }});
+                }, 1000);
+                $("#txt_cp_create").val("{{ $anuncio->cp }}");
+            }, 1000);
+        });
     </script>
 @endsection

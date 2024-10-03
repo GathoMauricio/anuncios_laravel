@@ -75,7 +75,7 @@ window.agregarImagen = () => {
                             </td>
                             <td width="45%">
                                 <input type="text" name="descripcion_imagen[]" class="form-control"
-                                    placeholder="Descripción..." required/>
+                                    placeholder="Descripción..."/>
                             </td>
                             <td width="10%">
                                 <button type="button" onclick="quitarImagen(${contadorImagenes});"

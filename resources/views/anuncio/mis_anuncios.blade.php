@@ -33,8 +33,9 @@
                                                     class="btn btn-primary"><span class="icon icon-eye"></span></a>
                                             </td>
                                             <td>
-                                                <a href="#" title="Editar" class="btn btn-warning"
-                                                    style="color:white"><span class="icon icon-pencil"></span></a>
+                                                <a href="{{ route('editar_anuncio', $anuncio->id) }}" title="Editar"
+                                                    class="btn btn-warning" style="color:white"><span
+                                                        class="icon icon-pencil"></span></a>
                                             </td>
                                         </tr>
                                     </table>

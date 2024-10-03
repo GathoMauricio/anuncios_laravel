@@ -87,6 +87,45 @@ class AnuncioController extends Controller
         return redirect()->away($session->url);
     }
 
+    public function update(Request $request, $id)
+    {
+        //Obtener anuncio y actualizar campos
+        $anuncio = Anuncio::find($id);
+        $anuncio->update([
+            'categoria_id' => $request->categoria_id,
+            'subcategoria_id' => $request->subcategoria_id,
+            'estado_id' => $request->estado_id,
+            'municipio_id' => $request->municipio_id,
+            'colonia_id' => $request->colonia_id,
+            'cp' => $request->cp,
+            'calle_numero' => $request->calle_numero,
+            'titulo' => $request->titulo,
+            'descripcion' => $request->deescripcion,
+            'precio' => $request->precio,
+            'negociable' => ($request->negociable && $request->negociable == 'on') ? true : false,
+            'metodo_pago' => 'no disponible',
+            'referencia_pago' => 'no disponible',
+            'borrador' => ($request->borrador && $request->borrador == 'on') ? 'SI' : 'NO',
+        ]);
+        //se obtienen las imagenes
+        if ($request->file('archivo_imagen')) {
+            //se guardan y se crean cada registro
+            for ($i = 0; $i < count($request->file('archivo_imagen')); $i++) {
+                $archivo = $request->file('archivo_imagen')[$i];
+                $ruta = $archivo->store('public/fotos_anuncios');
+                $nombre = explode('/', $ruta)[2];
+                echo $nombre . "<br>";
+                //crear registro #TODO
+                FotoAnuncio::create([
+                    'anuncio_id' => $anuncio->id,
+                    'ruta' => $nombre,
+                    'descripcion' => $request->descripcion_imagen[$i] ? $request->descripcion_imagen[$i] : '',
+                ]);
+            }
+        }
+        return redirect()->route('mis_anuncios')->with('message', 'El registro ha sido actualizados correctamente.');
+    }
+
     public function hacerPremium($id): RedirectResponse
     {
         //Se buscar el anuncio
@@ -162,5 +201,17 @@ class AnuncioController extends Controller
     {
         $anuncios = Anuncio::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->paginate(9);
         return view('anuncio.mis_anuncios', compact('anuncios'));
+    }
+
+    public function editarAnuncio(Request $request, $id)
+    {
+        $anuncio = Anuncio::findOrFail($id);
+        $categorias = Categoria::all();
+        $estados = Estado::all();
+        if ($anuncio->user_id == Auth::user()->id) {
+            return view('anuncio.editar_anuncio', compact('anuncio', 'categorias', 'estados'));
+        } else {
+            return abort(403);
+        }
     }
 }

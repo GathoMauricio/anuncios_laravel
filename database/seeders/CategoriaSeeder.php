@@ -24,23 +24,23 @@ class CategoriaSeeder extends Seeder
 
         $categoria = Categoria::create(['nombre' => 'Departamentos', 'icono' => 'home']);
         Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Departamentos en Renta', 'icono' => 'home']);
-        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Departamentos en Renta', 'icono' => 'home']);
-        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Departamentos en Renta', 'icono' => 'home']);
+        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Departamentos en Venta', 'icono' => 'home']);
+        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Departamentos en Preventa', 'icono' => 'home']);
 
         $categoria = Categoria::create(['nombre' => 'Terrenos', 'icono' => 'home']);
         Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Terrenos en Renta', 'icono' => 'home']);
-        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Terrenos en Renta', 'icono' => 'home']);
-        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Terrenos en Renta', 'icono' => 'home']);
+        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Terrenos en Venta', 'icono' => 'home']);
+        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Terrenos en Preventa', 'icono' => 'home']);
 
         $categoria = Categoria::create(['nombre' => 'Locales', 'icono' => 'home']);
         Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Locales en Renta', 'icono' => 'home']);
-        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Locales en Renta', 'icono' => 'home']);
-        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Locales en Renta', 'icono' => 'home']);
+        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Locales en Venta', 'icono' => 'home']);
+        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Locales en Preventa', 'icono' => 'home']);
 
         $categoria = Categoria::create(['nombre' => 'Bodegas', 'icono' => 'home']);
         Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Bodegas en Renta', 'icono' => 'home']);
-        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Bodegas en Renta', 'icono' => 'home']);
-        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Bodegas en Renta', 'icono' => 'home']);
+        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Bodegas en Venta', 'icono' => 'home']);
+        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Bodegas en Preventa', 'icono' => 'home']);
 
 
         $categoria = Categoria::create(['nombre' => 'Renta vacacional', 'icono' => 'home']);
@@ -51,7 +51,7 @@ class CategoriaSeeder extends Seeder
 
         $categoria = Categoria::create(['nombre' => 'Oficinas', 'icono' => 'home']);
         Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Oficinas en Renta', 'icono' => 'home']);
-        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Oficinas en Renta', 'icono' => 'home']);
-        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Oficinas en Renta', 'icono' => 'home']);
+        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Oficinas en Venta', 'icono' => 'home']);
+        Subcategoria::create(['categoria_id' => $categoria->id, 'nombre' => 'Oficinas en Preventa', 'icono' => 'home']);
     }
 }
