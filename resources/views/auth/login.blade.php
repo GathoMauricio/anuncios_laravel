@@ -77,9 +77,10 @@
                     </div>
                 </div>
                 <br><br>
-                <img src="{{ asset('img/categorias.png') }}" width="100%">
+                @include('layouts.categorias')
                 <br><br>
-                <img src="{{ asset('img/estadisticas.png') }}" width="100%">
+                <hr>
+                @include('layouts.estadisticas')
             </div>
             <div class="col-md-3 p-3" style="background-color:#eaeded">
                 <img src="{{ asset('img/publica.png') }}" width="100%">
@@ -87,7 +88,8 @@
                 <img src="{{ asset('img/como.png') }}" width="100%">
             </div>
         </div>
+        <hr>
         <br><br>
-        <img src="{{ asset('img/footer.png') }}" width="100%">
+        @include('layouts.footer')
     </div>
 @endsection

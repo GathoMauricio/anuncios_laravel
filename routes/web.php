@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('/');
+Route::view('condiciones', 'layouts.condiciones')->name('condiciones');
+Route::view('privacidad', 'layouts.privacidad')->name('privacidad');
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/municipios/{id?}', [App\Http\Controllers\SepomexController::class, 'minicipios'])->name('municipios');

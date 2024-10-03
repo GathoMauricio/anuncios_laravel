@@ -229,14 +229,32 @@
                 <img src="{{ asset('img/publica.png') }}" width="100%">
                 <br><br>
                 <img src="{{ asset('img/como.png') }}" width="100%">
+                <br><br>
+                <div id="map" style="width: 100%; height:300px;display:none;"></div>
             </div>
         </div>
+        <hr>
         <br><br>
-        <img src="{{ asset('img/footer.png') }}" width="100%">
+        @include('layouts.footer')
     </div>
 @endsection
 @section('custom_js')
     <script>
+        function iniciarMap() {
+            var coord = {
+                lat: 19.3907336,
+                lng: -99.1436127
+            };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: coord
+            });
+            var marker = new google.maps.Marker({
+                position: coord,
+                map: map
+            });
+        }
+
         function municipiosCreate(id) {
             $("#cbo_municipio_create").html('<option value>¿Municipio?</option>');
             $("#cbo_colonia_create").html('<option value>Colonia?</option>');
@@ -287,5 +305,7 @@
                 });
             }
         }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCz4hBxp9UXxkPzk0CO3eSLEhHuh5q08zE&callback=iniciarMap">
     </script>
 @endsection

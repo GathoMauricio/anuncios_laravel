@@ -56,8 +56,9 @@
                 <img src="{{ asset('img/como.png') }}" width="100%">
             </div>
         </div>
+        <hr>
         <br><br>
-        <img src="{{ asset('img/footer.png') }}" width="100%">
+        @include('layouts.footer')
     </div>
     @include('anuncio.modal_ver_foto')
 @endsection

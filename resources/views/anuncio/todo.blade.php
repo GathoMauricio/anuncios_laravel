@@ -41,10 +41,12 @@
 
         </div>
         <br><br>
-        <img src="{{ asset('img/categorias.png') }}" width="100%">
+        @include('layouts.categorias')
         <br><br>
-        <img src="{{ asset('img/estadisticas.png') }}" width="100%">
+        <hr>
+        @include('layouts.estadisticas')
+        <hr>
         <br><br>
-        <img src="{{ asset('img/footer.png') }}" width="100%">
+        @include('layouts.footer')
     </div>
 @endsection
