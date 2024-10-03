@@ -70,6 +70,23 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item  text-danger" href="{{ route('cuenta') }}">
+                                        Cuenta
+                                    </a>
+                                    <a class="dropdown-item  text-danger" href="#">
+                                        Mis anuncios
+                                    </a>
+                                    @if (Auth::user()->rol_id == 2)
+                                        <a class="dropdown-item  text-danger" href="#">
+                                            Usuarios
+                                        </a>
+                                        <a class="dropdown-item  text-danger" href="#">
+                                            Todos los anuncios
+                                        </a>
+                                        <a class="dropdown-item  text-danger" href="#">
+                                            Categorías
+                                        </a>
+                                    @endif
                                     <a class="dropdown-item  text-danger" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -92,6 +109,11 @@
             </div>
         </nav>
         <br><br><br>
+        @if (Session::has('message'))
+            <div class="alert alert-primary" role="alert">
+                {{ Session::get('message') }}
+            </div>
+        @endif
         <main class="py-4">
             @yield('content')
         </main>

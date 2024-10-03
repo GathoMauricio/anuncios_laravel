@@ -158,13 +158,25 @@
                                 <button type="button" onclick="validarCrearAnuncio();" class="btn btn-danger"
                                     style="background-color: brown;float:right;">Crear
                                     anuncio</button>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" style="width:60px;height: 30px;" name="borrador"
+                                        type="checkbox" id="flexSwitchCheckDefault">
+                                    <div class="p-2">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">
+                                            <strong>
+                                                &nbsp;&nbsp;&nbsp;
+                                                ¿Guardar como borrador?
+                                            </strong>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>
                 </div>
-                <input accept="image/*" type="file" name="image" id="input" style="display:none" />
+                {{--  <input accept="image/*" type="file" name="image" id="input" style="display:none" />
                 <button id="btn" style="display:none">Generar imagen</button>
-                <canvas id="canvas" style="display:none">CANVAS</canvas>
+                <canvas id="canvas" style="display:none">CANVAS</canvas>  --}}
 
             </div>
             <div class="col-md-3 p-3" style="background-color:#eaeded">

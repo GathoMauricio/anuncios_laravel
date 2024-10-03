@@ -10,8 +10,8 @@ class EstatusAnuncio extends Model
     use HasFactory;
 
     protected $table = 'estatus_anuncios';
-    protected $primaryKey = 'idestado';
-    public $timestamps = false;
+    protected $primaryKey = 'id';
+    public $timestamps = true;
 
     protected $fillable = [
         'id',

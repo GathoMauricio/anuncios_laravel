@@ -29,6 +29,7 @@ class Anuncio extends Model
         'negociable',
         'metodo_pago',
         'referencia_pago',
+        'borrador',
     ];
 
     public function cliente()

@@ -28,3 +28,6 @@ Route::post('/store_anuncio', [App\Http\Controllers\AnuncioController::class, 's
 Route::get('/pago_exitoso/{id}', [App\Http\Controllers\AnuncioController::class, 'pagoExitoso'])->name('pago_exitoso');
 Route::get('/hacer_premium/{id}', [App\Http\Controllers\AnuncioController::class, 'hacerPremium'])->name('hacer_premium')->middleware('auth');
 Route::get('/subcategorias/{id?}', [App\Http\Controllers\CategoriaController::class, 'subcategorias'])->name('subcategorias');
+Route::get('/cuenta', [App\Http\Controllers\UserController::class, 'cuenta'])->name('cuenta')->middleware('auth');
+Route::put('/actualizar_cuenta', [App\Http\Controllers\UserController::class, 'actualizarCuenta'])->name('actualizar_cuenta')->middleware('auth');
+Route::put('/actualizar_contrasena', [App\Http\Controllers\UserController::class, 'actualizarPassword'])->name('actualizar_contrasena')->middleware('auth');

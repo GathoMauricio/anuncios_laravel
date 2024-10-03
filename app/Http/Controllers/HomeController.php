@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $anuncios = Anuncio::orderBy('id', 'DESC')->limit(4)->get();
+        $anuncios = Anuncio::where('borrador', 'NO')->orderBy('id', 'DESC')->limit(4)->get();
         return view('index', compact('anuncios'));
     }
 }

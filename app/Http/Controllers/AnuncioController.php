@@ -26,7 +26,7 @@ class AnuncioController extends Controller
         //Se crea el anuncio pero se guarda con estatus pendiente hasta saber q sucede con el pago
         $anuncio = Anuncio::create([
             'user_id' => Auth::user()->id,
-            'estatus_id' => 1, //esattus 1 es pendiente de pago
+            'estatus_id' => 1, //estatus 1 es pendiente de pago
             'categoria_id' => $request->categoria_id,
             'subcategoria_id' => $request->subcategoria_id,
             'estado_id' => $request->estado_id,
@@ -40,6 +40,7 @@ class AnuncioController extends Controller
             'negociable' => ($request->negociable && $request->negociable == 'on') ? true : false,
             'metodo_pago' => 'no disponible',
             'referencia_pago' => 'no disponible',
+            'borrador' => ($request->borrador && $request->borrador == 'on') ? 'SI' : 'NO',
         ]);
         //se obtienen las imagenes
         if ($request->file('archivo_imagen')) {
@@ -147,13 +148,13 @@ class AnuncioController extends Controller
         if ($request->municipio_id) {
             $anuncios = $anuncios->where('categoria_id', $request->municipio_id);
         }
-        $anuncios = $anuncios->orderBy('id', 'DESC')->paginate(9);
+        $anuncios = $anuncios->where('borrador', 'NO')->orderBy('id', 'DESC')->paginate(9);
         return view('anuncio.buscar', compact('anuncios'));
     }
 
     public function todo(Request $request)
     {
-        $anuncios = Anuncio::orderBy('id', 'DESC')->paginate(9);
+        $anuncios = Anuncio::where('borrador', 'NO')->orderBy('id', 'DESC')->paginate(9);
         return view('anuncio.todo', compact('anuncios'));
     }
 }
