@@ -90,7 +90,7 @@ class AnuncioController extends Controller
                                 'name' => $anuncio->titulo, //se envia el titulo del anuncio
                                 'description' => $anuncio->descripcion, //se envia la descripción del anuncio
                             ],
-                            'unit_amount'  => 1000, //el monto q se cobrará va a variar según las reglas del sistema
+                            'unit_amount'  => 39900, //el monto q se cobrará va a variar según las reglas del sistema
                         ],
                         'quantity'   => 1,
                     ],
@@ -170,7 +170,7 @@ class AnuncioController extends Controller
                             'name' => $anuncio->titulo, //se envia el titulo del anuncio
                             'description' => $anuncio->descripcion, //se envia la descripción del anuncio
                         ],
-                        'unit_amount'  => 1000, //el monto q se cobrará va a variar según las reglas del sistema
+                        'unit_amount'  => 39900, //el monto q se cobrará va a variar según las reglas del sistema
                     ],
                     'quantity'   => 1,
                 ],
