@@ -14,7 +14,7 @@ class EstatusAnuncioSeeder extends Seeder
     public function run(): void
     {
         EstatusAnuncio::truncate();
-        EstatusAnuncio::create(['id' => 1, 'nombre' => 'Limitado']);
+        EstatusAnuncio::create(['id' => 1, 'nombre' => 'Gratis']);
         EstatusAnuncio::create(['id' => 2, 'nombre' => 'Premium']);
     }
 }

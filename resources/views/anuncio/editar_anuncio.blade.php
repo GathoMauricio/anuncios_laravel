@@ -6,6 +6,7 @@
         <div class="row p-3">
             <div class="col-md-9 p-3" style="background-color:#eaeded">
                 <div class="container p-3" style="background-color:#eaeded">
+                    <a href="javascript:void(0)" onclick="history.back();"><span class="icon-undo"></span> Regresar</a>
                     <h2> Editar anuncio</h2>
                     <hr>
                     <form action="{{ route('update_anuncio', $anuncio->id) }}" id="frm_update_anuncio" class="form"

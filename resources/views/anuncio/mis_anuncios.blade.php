@@ -5,6 +5,7 @@
     <div class="container p3">
         <div class="row p-3">
             <div class="col-md-9 p-3" style="background-color:#eaeded">
+                <a href="javascript:void(0)" onclick="history.back();"><span class="icon-undo"></span> Regresar</a>
                 <h2>Mis anuncios</h2>
                 {{ $anuncios->links('pagination::bootstrap-5') }}
                 <table class="table">
@@ -21,7 +22,17 @@
                     <tbody>
                         @forelse($anuncios as $anuncio)
                             <tr>
-                                <td>{{ $anuncio->estatus->nombre }}</td>
+                                <td>
+                                    {{ $anuncio->estatus->nombre }}
+                                    @if ($anuncio->estatus->id == 1)
+                                        <br>
+                                        <a href="{{ route('hacer_premium', $anuncio->id) }}">
+                                            <label class="bg-warning p-1 text-light" style="border-radius:5px;">
+                                                <span class="icon icon-star-full"></span>Premium
+                                            </label>
+                                        </a>
+                                    @endif
+                                </td>
                                 <td>{{ $anuncio->titulo }}</td>
                                 <td>{{ $anuncio->descripcion }}</td>
                                 <td>${{ $anuncio->precio }}</td>

@@ -6,6 +6,7 @@
 
         <div class="container">
             <a href="{{ route('todo') }}" style="float:right;">Ver todos >></a>
+            <a href="javascript:void(0)" onclick="history.back();"><span class="icon-undo"></span> Regresar</a>
             <h4>Resultados</h4>
             <hr>
             <div class="row p-2" style="background-color:#eaeded">

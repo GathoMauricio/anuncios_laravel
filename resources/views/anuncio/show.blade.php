@@ -5,6 +5,7 @@
     <div class="container p3">
         <div class="row p-3">
             <div class="col-md-9 p-3" style="background-color:#eaeded">
+                <a href="javascript:void(0)" onclick="history.back();"><span class="icon-undo"></span> Regresar</a>
                 <h2> Detalle del anuncio</h2>
                 @if (Auth::check() && $anuncio->user_id == Auth()->user()->id)
                     Este anuncio es {{ $anuncio->estatus->nombre }}
