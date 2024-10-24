@@ -55,9 +55,14 @@ window.validarCrearAnuncio = () => {
         }
     });
     if (validacion_imagenes) {
-        $("#frm_store_anuncio")[0].submit();
+        if ($("#flexSwitchCheckDefaultPremium").prop("checked")) {
+            $("#modal_confirmacion_create").modal("show");
+        } else {
+            $("#frm_store_anuncio")[0].submit();
+        }
     }
 };
+
 var contadorImagenes = 0;
 window.agregarImagen = () => {
     if (contadorImagenes == 0) {

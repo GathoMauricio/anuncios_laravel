@@ -11,9 +11,10 @@
             <hr>
             <div class="row p-2" style="background-color:#eaeded">
                 @foreach ($anuncios as $key => $anuncio)
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-header">
+                    <div class="col-md-3">
+                        <div class="card" @if ($anuncio->estatus_id == 2) style="border-color:yellow;" @endif>
+                            <div class="card-header"
+                                @if ($anuncio->estatus_id == 2) style="background-color:yellow;" @endif>
                                 <a href="{{ route('ver_anuncio', $anuncio->id) }}">{{ $anuncio->titulo }}</a>
                                 <br>
                                 {{ $anuncio->categoria->nombre }} - {{ $anuncio->subcategoria->nombre }}

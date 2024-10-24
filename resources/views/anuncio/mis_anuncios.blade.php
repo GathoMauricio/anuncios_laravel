@@ -22,13 +22,14 @@
                     <tbody>
                         @forelse($anuncios as $anuncio)
                             <tr>
-                                <td>
+                                <td width="20%">
                                     {{ $anuncio->estatus->nombre }}
                                     @if ($anuncio->estatus->id == 1)
                                         <br>
                                         <a href="{{ route('hacer_premium', $anuncio->id) }}">
-                                            <label class="bg-warning p-1 text-light" style="border-radius:5px;">
-                                                <span class="icon icon-star-full"></span>Premium
+                                            <label class="bg-warning p-1 text-light"
+                                                style="border-radius:5px;font-size:10px;">
+                                                <span class="icon icon-star-full"></span>Hacer Premium
                                             </label>
                                         </a>
                                     @endif
@@ -62,7 +63,29 @@
                 </table>
             </div>
             <div class="col-md-3 p-3" style="background-color:#eaeded">
-                <img src="{{ asset('img/publica.png') }}" width="100%">
+                {{--  <img src="{{ asset('img/publica.png') }}" width="100%">  --}}
+                <div class="card">
+                    <div class="card-header" style="background-color:brown;color:white">
+                        Convierte tu anuncio Premium
+                        <h6>DESTÁCALO</h6>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>En los primeros lugares de su categoría</li>
+                            <li>Triple de visitas</li>
+                            <li>Hasta 20 fotos</li>
+                            <li>Durante 30 días</li>
+                            <li>Solo por $399.00 mxn</li>
+                        </ul>
+                        Pago con Tarjeta por medio de <a href="https://stripe.com/mx" target="_BLANK"><img
+                                src="{{ asset('img/stripe.png') }}" width="60"></a>, <a
+                            href="https://www.oxxo.com/oxxo-pay" target="_BLANK"><img src="{{ asset('img/oxxo.png') }}"
+                                width="60"></a>
+                        o Transferencia electrónica <a
+                            href="https://www.banxico.org.mx/servicios/sistema-pagos-electronicos-in.html"
+                            target="_BLANK"><img src="{{ asset('img/spei.png') }}" width="40"></a>
+                    </div>
+                </div>
                 <br><br>
                 <img src="{{ asset('img/como.png') }}" width="100%">
             </div>

@@ -56,21 +56,20 @@
                 {{ $anuncio->calle_numero }},
                 CP {{ $anuncio->cp }}
                 <br>
-                @if ($anuncio->estatus_id == 2)
+
+                <br>
+                <strong>Contacto</strong>
+                <br>
+                <strong>Nombre: </strong> {{ $anuncio->cliente->name }} {{ $anuncio->cliente->apaterno }}
+                {{ $anuncio->cliente->amaterno }}
+                @if ($anuncio->cliente->telefono)
                     <br>
-                    <strong>Contacto</strong>
-                    <br>
-                    <strong>Nombre: </strong> {{ $anuncio->cliente->name }} {{ $anuncio->cliente->apaterno }}
-                    {{ $anuncio->cliente->amaterno }}
-                    @if ($anuncio->cliente->telefono)
-                        <br>
-                        <strong>Teléfono: </strong><a
-                            href="tel:{{ $anuncio->cliente->telefono }}">{{ $anuncio->cliente->telefono }}</a>
-                    @endif
-                    <br>
-                    <strong>Email: </strong><a
-                        href="mailto:{{ $anuncio->cliente->email }}">{{ $anuncio->cliente->email }}</a>
+                    <strong>Teléfono: </strong><a
+                        href="tel:{{ $anuncio->cliente->telefono }}">{{ $anuncio->cliente->telefono }}</a>
                 @endif
+                <br>
+                <strong>Email: </strong><a href="mailto:{{ $anuncio->cliente->email }}">{{ $anuncio->cliente->email }}</a>
+
                 <br>
                 <center>
                     <a href="#" class="btn btn-danger" style="background-color: brown;">Contactar al autor</a>
@@ -79,23 +78,32 @@
             <div class="col-md-3 p-3" style="background-color:#eaeded">
                 @if (Auth::check() && $anuncio->user_id == Auth()->user()->id && $anuncio->estatus_id == 1)
                     <div class="card">
-                        <div class="card-header" style="background-color:brown;color:white;">
-                            <h5>Premium</h5>
+                        <div class="card-header" style="background-color:brown;color:white">
+                            Convierte tu anuncio en <a href="{{ route('hacer_premium', $anuncio->id) }}">
+                                <label class="text-warning" style="font-size:14px;">
+                                    <span class="icon icon-star-full"></span>Premium
+                                </label>
+                            </a>
+                            <h6>DESTÁCALO</h6>
                         </div>
                         <div class="card-body">
-                            Hola <strong>{{ $anuncio->cliente->name }}</strong> por el momento tu anuncio no es
-                            <b><i>Premium</i></b>
-                            por lo tanto tus datos de contacto no son visibles para los posibles interesados.
-                            <br><br>
-                            Te recomendamos hacerlo premium para que tus contactos puedan comunicarse contigo facilmente.
-                        </div>
-                        <div class="card-footer">
-                            <a href="{{ route('hacer_premium', $anuncio->id) }}" class="btn btn-danger"
-                                style="background-color: brown;width:100%">Hacer
-                                premium</a>
+                            <ul>
+                                <li>En los primeros lugares de su categoría</li>
+                                <li>Triple de visitas</li>
+                                <li>Hasta 20 fotos</li>
+                                <li>Durante 30 días</li>
+                                <li>Solo por $399.00 mxn</li>
+                            </ul>
+                            Pago con Tarjeta por medio de <a href="https://stripe.com/mx" target="_BLANK"><img
+                                    src="{{ asset('img/stripe.png') }}" width="60"></a>, <a
+                                href="https://www.oxxo.com/oxxo-pay" target="_BLANK"><img src="{{ asset('img/oxxo.png') }}"
+                                    width="60"></a>
+                            o Transferencia electrónica <a
+                                href="https://www.banxico.org.mx/servicios/sistema-pagos-electronicos-in.html"
+                                target="_BLANK"><img src="{{ asset('img/spei.png') }}" width="40"></a>
                         </div>
                     </div>
-                    <br><br>
+                    <br>
                 @endif
                 <img src="{{ asset('img/publica.png') }}" width="100%">
                 <br><br>

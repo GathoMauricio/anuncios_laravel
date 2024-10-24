@@ -1,10 +1,10 @@
-@php
+{{--  @php
     $num_anuncios = App\Models\Anuncio::count();
     $num_usuarios = App\Models\User::count();
     $num_lugares = App\Models\Municipio::count();
-@endphp
+@endphp  --}}
 
-<div class="container">
+{{--  <div class="container">
     <div class="row">
         <div class="col-md-4 p-3">
             <center>
@@ -25,4 +25,4 @@
             </center>
         </div>
     </div>
-</div>
+</div>  --}}

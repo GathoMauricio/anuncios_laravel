@@ -41,7 +41,8 @@
                                 <div class="form-group">
                                     <label style="font-weight: bold;">Título</label>
                                     <input type="text" name="titulo" id="txt_titulo_create"
-                                        placeholder="Título de la publicación..." class="form-control" />
+                                        placeholder="Título de la publicación..." maxlength="70" class="form-control" />
+                                    <small class="text-primary">Este campo acepta hasta 70 caracteres</small>
                                     @error('titulo')
                                         <span>{{ $message }}</span>
                                     @enderror
@@ -52,8 +53,9 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label style="font-weight: bold;">Descripción</label>
-                                    <textarea name="deescripcion" id="txt_descripcion_create" placeholder="Descripción de la publicación..."
+                                    <textarea name="deescripcion" id="txt_descripcion_create" maxlength="500" placeholder="Descripción de la publicación..."
                                         class="form-control" /></textarea>
+                                    <small class="text-primary">Este campo acepta hasta 500 caracteres</small>
                                     @error('deescripcion')
                                         <span>{{ $message }}</span>
                                     @enderror
@@ -208,19 +210,22 @@
                                 </div>
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" style="width:60px;height: 30px;" name="premium"
-                                        type="checkbox" id="flexSwitchCheckDefault">
+                                        type="checkbox" id="flexSwitchCheckDefaultPremium">
 
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefaultPremium">
                                         <strong>
                                             &nbsp;&nbsp;&nbsp;
                                             ¿Hacer Premium?
                                         </strong>
                                     </label>
-
+                                    <div id="html_element"></div>
                                 </div>
-                                <button type="button" onclick="validarCrearAnuncio();" class="btn btn-danger"
-                                    style="background-color: brown;float:right;">Crear
-                                    anuncio</button>
+                                <button class="g-recaptcha btn btn-danger"
+                                    data-sitekey="6LdRUGoqAAAAAFNxt75SbQ-Lqpd0TOgDbhklJQ-K"
+                                    data-callback='validarCrearAnuncio' data-action='submit'
+                                    style="background-color: brown;float:right;">
+                                    Crear anuncio
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -231,13 +236,14 @@
                 <br><br>
                 <img src="{{ asset('img/como.png') }}" width="100%">
                 <br><br>
-                <div id="map" style="width: 100%; height:300px;display:none;"></div>
+                <div id="map" style="width: 100%; height:300px;"></div>
             </div>
         </div>
         <hr>
         <br><br>
         @include('layouts.footer')
     </div>
+    @include('anuncio.confirmacion')
 @endsection
 @section('custom_js')
     <script>
@@ -306,7 +312,12 @@
                 });
             }
         }
+
+        function onSubmit(token) {
+            document.getElementById("demo-form").submit();
+        }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCz4hBxp9UXxkPzk0CO3eSLEhHuh5q08zE&callback=iniciarMap">
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoB6rmriGlDHt3t28H3DSvSMOU6h35gL8&callback=iniciarMap&loading=async">
     </script>
 @endsection
