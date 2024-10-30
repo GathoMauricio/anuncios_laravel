@@ -44,6 +44,9 @@
 
         </div>
         <br><br>
+        @include('layouts.anunciate_aqui')
+        <br><br>
+        <hr>
         @include('layouts.categorias')
         <br><br>
         <hr>

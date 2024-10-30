@@ -2,7 +2,7 @@
     $categorias = App\Models\Categoria::all();
     $estados = App\Models\Estado::all();
 @endphp
-<div class="p-3" style="background-color: white">
+<div class="p-3" style="background-color: white" id="div_buscador">
     <h1 class="text-center"><strong>Anuncios de Venta y Renta de Inmuebles</strong></h1>
     <br>
     <h4 class="text-center"><strong>Portal 100% mexicano rápido y eficiente</strong></h4>
@@ -49,6 +49,7 @@
             </div>
         </div>
     </form>
+    <br><br><br>
 </div>
 <script>
     function municipios(id) {
@@ -63,3 +64,11 @@
         }
     }
 </script>
+<style>
+    #div_buscador {
+        background: url("https://images.adsttc.com/media/images/6545/3cca/08e4/447b/a397/b8f6/newsletter/curiosidades-y-mitos-de-los-edificios-mas-emblematicos-de-la-ciudad-de-mexico_13.jpg?1699036368") no-repeat;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+</style>
