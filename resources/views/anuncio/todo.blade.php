@@ -12,11 +12,12 @@
             <div class="row p-2" style="background-color:#eaeded">
                 {{ $anuncios->links('pagination::bootstrap-5') }}
                 @forelse ($anuncios as $key => $anuncio)
-                    <div class="col-md-4">
-                        <div class="card" @if ($anuncio->estatus_id == 2) style="border-color:yellow;" @endif>
+                    <div class="col-md-3">
+                        <div class="card" @if ($anuncio->estatus_id == 2) style="border-color:#d35400;" @endif>
                             <div class="card-header"
-                                @if ($anuncio->estatus_id == 2) style="background-color:yellow;" @endif>
-                                <a href="{{ route('ver_anuncio', $anuncio->id) }}">{{ $anuncio->titulo }}</a>
+                                @if ($anuncio->estatus_id == 2) style="background-color:#d35400; color:white;" @endif>
+                                <a href="{{ route('ver_anuncio', $anuncio->id) }}"
+                                    @if ($anuncio->estatus_id == 2) style="color:#aed6f1;" @endif><strong>{{ $anuncio->titulo }}</strong></a>
                                 <br>
                                 {{ $anuncio->categoria->nombre }} - {{ $anuncio->subcategoria->nombre }}
                             </div>
