@@ -10,7 +10,7 @@
     <form class="form" action="{{ route('buscar') }}" method="GET">
         @csrf
         <div class="container">
-            <div class="row p-3" style="background-color: brown">
+            <div class="row p-3" style="background-color: brown;border-radius:10px;">
                 <div class="col-md-3 col-sm-12">
                     <div class="form-group">
                         <select name="categoria_id" class="form-select select2">

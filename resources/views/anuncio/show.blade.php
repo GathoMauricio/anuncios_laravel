@@ -76,10 +76,20 @@
                 @endif
                 <br>
                 <strong>Email: </strong><a href="mailto:{{ $anuncio->cliente->email }}">{{ $anuncio->cliente->email }}</a>
-
                 <br>
+                {{--  @php
+                    // Webservices
+                    $google_maps_url =
+                        'https://maps.googleapis.com/maps/api/geocode/json?address=' .
+                        'oriente9226reformanezahualcoyotl' .
+                        '&key=AIzaSyBoB6rmriGlDHt3t28H3DSvSMOU6h35gL8';
+                    $google_maps_json = file_get_contents($google_maps_url);
+                    $google_maps_array = json_decode($google_maps_json, true);
+                    echo print_r($google_maps_array);
+                @endphp  --}}
                 <center>
-                    <a href="#" class="btn btn-danger" style="background-color: brown;">Contactar al autor</a>
+                    <a href="mailto:{{ $anuncio->cliente->email }}" class="btn btn-danger"
+                        style="background-color: brown;">Contactar al autor</a>
                 </center>
             </div>
             <div class="col-md-3 p-3" style="background-color:#eaeded">
