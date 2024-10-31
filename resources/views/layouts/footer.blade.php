@@ -20,7 +20,10 @@
         </div>
         <div class="col-md-3">
             <h6><strong>SÍGUENOS EN</strong></h6>
-
+            <a href="https://www.facebook.com/profile.php?id=100066569195961&mibextid=ZbWKwL" target="_blank"
+                class="btn btn-primary" title="Faceboox">
+                <span class="icon icon-facebook"></span>
+            </a>
         </div>
     </div>
 </div>

@@ -17,14 +17,15 @@
                             <th>Precio</th>
                             <th>Borrador</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse($anuncios as $anuncio)
                             <tr>
-                                <td width="20%">
+                                <td>
                                     {{ $anuncio->estatus->nombre }}
-                                    @if ($anuncio->estatus->id == 1)
+                                    {{--  @if ($anuncio->estatus->id == 1)
                                         <br>
                                         <a href="{{ route('hacer_premium', $anuncio->id) }}">
                                             <label class="bg-warning p-1 text-light"
@@ -32,7 +33,7 @@
                                                 <span class="icon icon-star-full"></span>Hacer Premium
                                             </label>
                                         </a>
-                                    @endif
+                                    @endif  --}}
                                 </td>
                                 <td>{{ $anuncio->titulo }}</td>
                                 <td>{{ $anuncio->descripcion }}</td>
@@ -53,18 +54,35 @@
                                         </tr>
                                     </table>
                                 </td>
+                                <td width="20%">
+                                    @if ($anuncio->estatus->id == 1)
+                                        <a href="{{ route('hacer_premium', $anuncio->id) }}">
+                                            <label class="bg-warning p-1 text-light"
+                                                style="border-radius:5px;font-size:10px;">
+                                                <span class="icon icon-star-full"></span>Hacer Premium con TDD
+                                            </label>
+                                        </a>
+                                        <br>
+                                        <a href="javascript:void(0)" onclick="modalSpeiData({{ $anuncio->id }});">
+                                            <label class="bg-warning p-1 text-light"
+                                                style="border-radius:5px;font-size:10px;">
+                                                <span class="icon icon-star-full"></span>Hacer Premium con SPEI
+                                            </label>
+                                        </a>
+                                    @endif
+                                </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6">No se ha creado nungún anuncio</td>
+                                <td colspan="7">No se ha creado nungún anuncio</td>
                             </tr>
                         @endforelse
                     </tbody>
                 </table>
             </div>
             <div class="col-md-3 p-3" style="background-color:#eaeded">
-                {{--  <img src="{{ asset('img/publica.png') }}" width="100%">  --}}
-                <div class="card">
+                <img src="{{ asset('img/publica.png') }}" width="100%">
+                {{--  <div class="card">
                     <div class="card-header" style="background-color:brown;color:white">
                         Convierte tu anuncio Premium
                         <h6>DESTÁCALO</h6>
@@ -85,7 +103,7 @@
                             href="https://www.banxico.org.mx/servicios/sistema-pagos-electronicos-in.html"
                             target="_BLANK"><img src="{{ asset('img/spei.png') }}" width="40"></a>
                     </div>
-                </div>
+                </div>  --}}
                 <br><br>
                 <img src="{{ asset('img/como.png') }}" width="100%">
             </div>
@@ -95,6 +113,13 @@
         @include('layouts.footer')
     </div>
     @include('anuncio.modal_ver_foto')
+    @include('anuncio.modal_spei_data')
 @endsection
 @section('custom_js')
+    <script>
+        function modalSpeiData(anuncio_id) {
+            $("#modal_spei_data").modal('show');
+            $("#span_spein_id").text(anuncio_id);
+        }
+    </script>
 @endsection

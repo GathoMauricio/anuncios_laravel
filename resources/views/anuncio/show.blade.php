@@ -85,13 +85,16 @@
             <div class="col-md-3 p-3" style="background-color:#eaeded">
                 @if (Auth::check() && $anuncio->user_id == Auth()->user()->id && $anuncio->estatus_id == 1)
                     <div class="card">
-                        <div class="card-header" style="background-color:brown;color:white">
-                            Convierte tu anuncio en <a href="{{ route('hacer_premium', $anuncio->id) }}">
-                                <label class="text-warning" style="font-size:14px;">
-                                    <span class="icon icon-star-full"></span>Premium
-                                </label>
-                            </a>
-                            <h6>DESTÁCALO</h6>
+                        <div class="card-header text-center" style="background-color:brown;color:white">
+                            Convierte tu anuncio en
+                            <label class="text-warning" style="font-size:14px;">
+                                <span class="icon icon-star-full"></span>Premium
+                            </label>
+                            <br>
+                            y
+                            <br>
+                            <a href="{{ route('hacer_premium', $anuncio->id) }}" class="btn btn-danger">DESTÁCALO
+                                AHORA</a>
                         </div>
                         <div class="card-body">
                             <ul>
@@ -101,13 +104,12 @@
                                 <li>Durante 30 días</li>
                                 <li>Solo por $399.00 mxn</li>
                             </ul>
-                            Pago con Tarjeta por medio de <a href="https://stripe.com/mx" target="_BLANK"><img
+                            Pago con Tarjeta por medio de <a href="{{ route('hacer_premium', $anuncio->id) }}"><img
                                     src="{{ asset('img/stripe.png') }}" width="60"></a>, <a
                                 href="https://www.oxxo.com/oxxo-pay" target="_BLANK"><img src="{{ asset('img/oxxo.png') }}"
                                     width="60"></a>
-                            o Transferencia electrónica <a
-                                href="https://www.banxico.org.mx/servicios/sistema-pagos-electronicos-in.html"
-                                target="_BLANK"><img src="{{ asset('img/spei.png') }}" width="40"></a>
+                            o Transferencia electrónica <a href="javascript:void(0)" onclick="modalSpeiData();"><img
+                                    src="{{ asset('img/spei.png') }}" width="40"></a>
                         </div>
                     </div>
                     <br>
@@ -122,10 +124,15 @@
         @include('layouts.footer')
     </div>
     @include('anuncio.modal_ver_foto')
+    @include('anuncio.modal_spei_data')
 @endsection
 @section('custom_js')
     <script src="https://cdn.jsdelivr.net/npm/fabric"></script>
     <script>
+        function modalSpeiData() {
+            $("#modal_spei_data").modal('show');
+        }
+
         function verFoto(url_foto) {
             console.log(url_foto);
 
