@@ -16,6 +16,9 @@
                         <div class="card" @if ($anuncio->estatus_id == 2) style="border-color:#d35400;" @endif>
                             <div class="card-header"
                                 @if ($anuncio->estatus_id == 2) style="background-color:#d35400; color:white;" @endif>
+                                @if ($anuncio->estatus_id == 2)
+                                    <span class="icon icon-star-full" style="color:yellow;float:right"></span>
+                                @endif
                                 <a href="{{ route('ver_anuncio', $anuncio->id) }}"
                                     @if ($anuncio->estatus_id == 2) style="color:#aed6f1;" @endif><strong>{{ $anuncio->titulo }}</strong></a>
                                 <br>

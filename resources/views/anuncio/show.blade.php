@@ -51,10 +51,17 @@
                 <br><br>
                 <strong>Dirección: </strong>
                 {{ $anuncio->estado->estado }},
-                {{ $anuncio->municipio->municipio }},
+                @if ($anuncio->municipio->municipio = !'Jiménez')
+                    {{ $anuncio->municipio->municipio }},
+                @endif
                 {{ $anuncio->colonia->colonia }}.
                 {{ $anuncio->calle_numero }},
-                CP {{ $anuncio->cp }}
+                CP
+                @if (strlen($anuncio->cp) <= 4)
+                    0{{ $anuncio->cp }}
+                @else
+                    {{ $anuncio->cp }}
+                @endif
                 <br>
 
                 <br>
