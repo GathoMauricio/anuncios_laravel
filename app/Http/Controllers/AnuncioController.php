@@ -7,6 +7,7 @@ use Stripe\Checkout\Session;
 use Stripe\Stripe;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Categoria;
 use App\Models\Estado;
 use App\Models\Anuncio;
@@ -73,6 +74,13 @@ class AnuncioController extends Controller
                 ]);
             }
         }
+        //Enviar email al usuario
+        Mail::send('email.crear_anuncio', ['anuncio' => $anuncio], function ($mail) use ($anuncio) {
+            $mail->subject('Categoría Inmuebles');
+            $mail->from('contacto@catinmo.com', 'Categoría Inmuebles');
+            $mail->to([$anuncio->cliente->email]);
+        });
+
         if ($request->premium && $request->premium == 'on') {
 
 

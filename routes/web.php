@@ -38,3 +38,11 @@ Route::get('/cuenta', [App\Http\Controllers\UserController::class, 'cuenta'])->n
 Route::put('/actualizar_cuenta', [App\Http\Controllers\UserController::class, 'actualizarCuenta'])->name('actualizar_cuenta')->middleware('auth');
 Route::put('/actualizar_contrasena', [App\Http\Controllers\UserController::class, 'actualizarPassword'])->name('actualizar_contrasena')->middleware('auth');
 Route::get('/usuarios', [App\Http\Controllers\UserController::class, 'index'])->name('usuarios')->middleware('auth');
+Route::get('/email', function () {
+    \Mail::send('email.test', [], function ($mail) {
+        $mail->subject('Categoría Inmuebles');
+        $mail->from('contacto@catinmo.com', 'Categoría Inmuebles');
+        $mail->to(['mauricio2769@gmail.com']);
+    });
+});
+Route::view('crear_anuncio_test', 'email.crear_anuncio');

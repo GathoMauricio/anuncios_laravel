@@ -51,9 +51,9 @@
                 <br><br>
                 <strong>Dirección: </strong>
                 {{ $anuncio->estado->estado }},
-                @if ($anuncio->municipio->municipio = !'Jiménez')
+                {{--  @if ($anuncio->municipio->municipio != 'Jiménez')
                     {{ $anuncio->municipio->municipio }},
-                @endif
+                @endif  --}}
                 {{ $anuncio->colonia->colonia }}.
                 {{ $anuncio->calle_numero }},
                 CP
@@ -77,16 +77,60 @@
                 <br>
                 <strong>Email: </strong><a href="mailto:{{ $anuncio->cliente->email }}">{{ $anuncio->cliente->email }}</a>
                 <br>
-                {{--  @php
+                @php
                     // Webservices
                     $google_maps_url =
                         'https://maps.googleapis.com/maps/api/geocode/json?address=' .
-                        'oriente9226reformanezahualcoyotl' .
+                        '' .
+                        urlencode(
+                            $anuncio->calle_numero .
+                                ' ' .
+                                $anuncio->colonia->colonia .
+                                ' ' .
+                                $anuncio->estado->estado .
+                                ' cp ' .
+                                $anuncio->cp,
+                        ) .
                         '&key=AIzaSyBoB6rmriGlDHt3t28H3DSvSMOU6h35gL8';
                     $google_maps_json = file_get_contents($google_maps_url);
                     $google_maps_array = json_decode($google_maps_json, true);
-                    echo print_r($google_maps_array);
-                @endphp  --}}
+                    //print_r($google_maps_array['results'][0]['geometry']['location']);
+                    //echo '<br>';
+                    //echo array_key_exists('location', $google_maps_array['results'][0]['geometry']);
+
+                    if (array_key_exists('location', $google_maps_array['results'][0]['geometry'])) {
+                        //print_r($google_maps_array['results'][0]['geometry']['location']);
+                        $mapa_lat = $google_maps_array['results'][0]['geometry']['location']['lat'];
+                        //echo 'Lat: ' . $mapa_lat;
+                        //echo '<br><br>';
+                        $mapa_lng = $google_maps_array['results'][0]['geometry']['location']['lng'];
+                        //echo 'Lng: ' . $mapa_lng;
+                    } else {
+                        //print_r($google_maps_array['results'][0]['geometry']['bounds']['northeast']);
+                        $mapa_lat = $google_maps_array['results'][0]['geometry']['bounds']['northeast']['lat'];
+                        //echo 'Lat: ' . $mapa_lat;
+                        //echo '<br><br>';
+                        $mapa_lng = $google_maps_array['results'][0]['geometry']['bounds']['northeast']['lng'];
+                        //echo 'Lng: ' . $mapa_lng;
+                    }
+                    /*
+                    echo '<br><br>';
+                    echo urlencode(
+                        $anuncio->calle_numero .
+                            ' ' .
+                            $anuncio->colonia->colonia .
+                            ' ' .
+                            $anuncio->municipio->municipio .
+                            ' ' .
+                            $anuncio->estado->estado .
+                            ' cp ' .
+                            $anuncio->cp,
+                    );
+                    */
+                @endphp
+                <br>
+                <div id="map" style="width: 100%; height:400px;"></div>
+                <br>
                 <center>
                     <a href="mailto:{{ $anuncio->cliente->email }}" class="btn btn-danger"
                         style="background-color: brown;">Contactar al autor</a>
@@ -170,5 +214,23 @@
         function ocultarFoto() {
             $("#modal_ver_foto").css("display", "none");
         }
+
+        function iniciarMap() {
+            var coord = {
+                lat: {{ $mapa_lat }},
+                lng: {{ $mapa_lng }}
+            };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: coord
+            });
+            var marker = new google.maps.Marker({
+                position: coord,
+                map: map
+            });
+        }
+    </script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoB6rmriGlDHt3t28H3DSvSMOU6h35gL8&callback=iniciarMap&loading=async">
     </script>
 @endsection
