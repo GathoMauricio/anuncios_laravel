@@ -27,13 +27,13 @@
         </ul>
         <br>
         Contamos con pago con Tarjeta por medio de 
-        <img src="http://anuncios_laravel.test/img/stripe.png" width="60"> la pasarela de pago más segura de internet
+        <strong>STRIPE</strong> la pasarela de pago más segura de internet
         <br>
         y pagos en efectivo en tu tienda 
-        <img src="http://anuncios_laravel.test/img/oxxo.png" width="60"> más cercana dentro de nuestra plataforma 
+        <strong>OXXO</strong> más cercana dentro de nuestra plataforma 
         <br><br>
         o si lo prefieres via Transferencia electrónica 
-        <img src="http://anuncios_laravel.test/img/spei.png" width="40"> con los siguientes datos:
+        <strong>SPEI</strong> con los siguientes datos:
         <br><br> 
         BANCO: <strong>HSBC</strong>
         <br>
