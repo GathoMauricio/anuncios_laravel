@@ -12,8 +12,44 @@
     <center>
         <img src="https://www.catinmo.com/img/logo.png" width="60%">
     </center>
+    <h4>Estimad@ {{ $anuncio->cliente->name }} {{ $anuncio->cliente->apaterno }} {{ $anuncio->cliente->amaterno }}</h4>
     <p>
-        Se ha generado su nuevo anuncio <strong>{{ 'Lorem ipsum' }}</strong>
+        Se ha generado su nuevo anuncio con título: <strong>{{ $anuncio->titulo }}</strong>
+        <br><br>
+        Le recordamos que puede destacar su anuncio y recibir los siguientes beneficios:
+        <br>
+        <ul>
+            <li>En los primeros lugares de su categoría</li>
+            <li>Triple de visitas</li>
+            <li>Hasta 20 fotos</li>
+            <li>Durante 30 días</li>
+            <li>Solo por $399.00 mxn</li>
+        </ul>
+        <br>
+        Contamos con pago con Tarjeta por medio de 
+        <img src="http://anuncios_laravel.test/img/stripe.png" width="60"> la pasarela de pago más segura de internet
+        <br>
+        y pagos en efectivo en tu tienda 
+        <img src="http://anuncios_laravel.test/img/oxxo.png" width="60"> más cercana dentro de nuestra plataforma 
+        <br><br>
+        o si lo prefieres via Transferencia electrónica 
+        <img src="http://anuncios_laravel.test/img/spei.png" width="40"> con los siguientes datos:
+        <br><br> 
+        BANCO: <strong>HSBC</strong>
+        <br>
+        CLIENTE: <strong>Comercializadora Arm21 sa de cv</strong>
+        <br>
+        CLABE: <strong>0211 8004&nbsp;0666&nbsp;9430&nbsp;88</strong>
+        <br>
+        CONCEPTO: <strong>catinmo_<span id="span_spein_id">{{ $anuncio->titulo }}/span></strong>
+        <br>
+        MONTO: <strong>$399 MXN</strong>
+        <br>
+        <br>
+        Es importante que al realizar la transferencia nos hagas el favor de enviar tu comprobante de pago 
+        con el asunto <strong>"Pago catinmo_{{ $anuncio->titulo }}"</strong> 
+        al siguente correo electrónico <a href="mailto:ventas@arm21.com">ventas@arm21.com</a> para poder validar 
+        y actualizar el estatus de tu anuncio a la brevedad.
     </p>
 </body>
 

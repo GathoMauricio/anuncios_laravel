@@ -17,6 +17,11 @@
                 <br>
                 MONTO: <strong>$399 MXN</strong>
                 <br>
+                <br>
+                Es importante que al realizar la transferencia nos hagas el favor de enviar tu comprobante de pago 
+                con el asunto <strong>"Pago catinmo_#"</strong> 
+                al siguente correo electrónico <a href="mailto:ventas@arm21.com">ventas@arm21.com</a> para poder validar 
+                y actualizar el estatus de tu anuncio a la brevedad.
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
