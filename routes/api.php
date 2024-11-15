@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('pago_oxxo_ok',function(Request $request){
+    \Log::debug("Pago oxxo entrante");
+    \Log::debug($request);
+});

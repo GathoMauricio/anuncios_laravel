@@ -104,6 +104,7 @@ class AnuncioController extends Controller
                     ],
                 ],
                 'mode'        => 'payment',
+                'payment_method_types' =>  ['card', 'oxxo'],
                 //Si la tarjeta pasa redirige a la ruta succes donde actualizamos el estatus del anuncio pasando como parametro el id
                 'success_url' => route('pago_exitoso', $anuncio->id),
                 //Si se cancela la compra o no pasa se redirige a los detalles del anuncio q debe estar pendiente de pago
@@ -184,6 +185,7 @@ class AnuncioController extends Controller
                 ],
             ],
             'mode'        => 'payment',
+            'payment_method_types' => [ 'oxxo'],
             //Si la tarjeta pasa redirige a la ruta succes donde actualizamos el estatus del anuncio pasando como parametro el id
             'success_url' => route('pago_exitoso', $anuncio->id),
             //Si se cancela la compra o no pasa se redirige a los detalles del anuncio q debe estar pendiente de pago
