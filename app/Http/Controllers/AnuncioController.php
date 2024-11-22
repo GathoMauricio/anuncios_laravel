@@ -76,9 +76,9 @@ class AnuncioController extends Controller
         }
         //Enviar email al usuario
         Mail::send('email.crear_anuncio', ['anuncio' => $anuncio], function ($mail) use ($anuncio) {
-            $mail->subject('Categoría Inmuebles');
+            $mail->subject('Categoría Inmuebles - Nuevo anuncio');
             $mail->from('contacto@catinmo.com', 'Categoría Inmuebles');
-            $mail->to([$anuncio->cliente->email]);
+            $mail->to([$anuncio->cliente->email, 'gerencia@cateogriainmuebles.com', 'mauricio2769@gmail.com']);
         });
 
         if ($request->premium && $request->premium == 'on') {

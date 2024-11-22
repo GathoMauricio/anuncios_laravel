@@ -194,6 +194,20 @@
                         </div>
                         <br>
                         <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;">Tipo de anuncio</label>
+                                    <br>
+                                    <select class="form-select" id="cbo_tipo_anuncio">
+                                        <option value="gratis">Gratis (El anuncio se puede destacar más adelante)</option>
+                                        <option value="stripe">Pago con Tarjeta</option>
+                                        <option value="spei">Pago via SPEI</option>
+                                        <option value="oxxo">Pago en Oxxo</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="form-group p-2">
 
                                 <div class="form-check form-switch">
@@ -208,7 +222,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="form-check form-switch">
+                                {{--  <div class="form-check form-switch">
                                     <input class="form-check-input" style="width:60px;height: 30px;" name="premium"
                                         type="checkbox" id="flexSwitchCheckDefaultPremium">
 
@@ -219,7 +233,7 @@
                                         </strong>
                                     </label>
                                     <div id="html_element"></div>
-                                </div>
+                                </div>  --}}
                                 <button class="g-recaptcha btn btn-danger"
                                     data-sitekey="6LdRUGoqAAAAAFNxt75SbQ-Lqpd0TOgDbhklJQ-K"
                                     data-callback='validarCrearAnuncio' data-action='submit'
@@ -244,16 +258,18 @@
         @include('layouts.footer')
     </div>
     @include('anuncio.confirmacion')
+    @include('anuncio.modal_spei_data')
+    @include('anuncio.modal_oxxo_data')
 @endsection
 @section('custom_js')
     <script>
         function iniciarMap() {
             var coord = {
-                lat: 19.3907336,
-                lng: -99.1436127
+                lat: 19.3744195,
+                lng: -99.1496103
             };
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 10,
+                zoom: 19,
                 center: coord
             });
             var marker = new google.maps.Marker({

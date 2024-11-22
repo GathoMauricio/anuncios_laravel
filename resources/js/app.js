@@ -54,11 +54,21 @@ window.validarCrearAnuncio = () => {
             validacion_imagenes = false;
         }
     });
+
     if (validacion_imagenes) {
-        if ($("#flexSwitchCheckDefaultPremium").prop("checked")) {
-            $("#modal_confirmacion_create").modal("show");
-        } else {
-            $("#frm_store_anuncio")[0].submit();
+        switch ($("#cbo_tipo_anuncio").val()) {
+            case "gratis":
+                $("#frm_store_anuncio")[0].submit();
+                break;
+            case "stripe":
+                $("#modal_confirmacion_create").modal("show");
+                break;
+            case "spei":
+                $("#modal_spei_data").modal("show");
+                break;
+            case "oxxo":
+                $("#modal_oxxo_data").modal("show");
+                break;
         }
     }
 };

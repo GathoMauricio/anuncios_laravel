@@ -17,7 +17,7 @@
                             <div class="card-header"
                                 @if ($anuncio->estatus_id == 2) style="background-color:#d35400; color:white;" @endif>
                                 @if ($anuncio->estatus_id == 2)
-                                    <span class="icon icon-star-full" style="color:yellow;float:right"></span>
+                                    <span class="icon icon-flag p-1" style="color:yellow;float:right"></span>
                                 @endif
                                 <a href="{{ route('ver_anuncio', $anuncio->id) }}"
                                     @if ($anuncio->estatus_id == 2) style="color:#aed6f1;" @endif><strong>{{ $anuncio->titulo }}</strong></a>
@@ -28,15 +28,33 @@
                                 <div class="card-body">
                                     @if (isset($anuncio->fotos[0]->ruta))
                                         <img src="{{ asset('storage/fotos_anuncios/' . $anuncio->fotos[0]->ruta) }}"
-                                            width="100%" height="200">
+                                            width="100%" height="400">
                                     @else
                                         <img src="{{ asset('https://images.adsttc.com/media/images/528c/a1a0/e8e4/4efc/1f00/00c3/newsletter/IMG_6201.jpg') }}"
-                                            width="100%" height="200">
+                                            width="100%" height="400">
                                     @endif
                                 </div>
                             </a>
                             <div class="card-footer">
-                                ${{ $anuncio->precio }}
+                                <span style="float:right">${{ $anuncio->precio }}</span>
+                                @php
+                                    switch (strlen($anuncio->id)) {
+                                        case 1:
+                                            echo '0000' . $anuncio->id;
+                                            break;
+                                        case 2:
+                                            echo '000' . $anuncio->id;
+                                            break;
+                                        case 3:
+                                            echo '00' . $anuncio->id;
+                                            break;
+                                        case 4:
+                                            echo '0' . $anuncio->id;
+                                            break;
+                                        default:
+                                            echo $anuncio->id;
+                                    }
+                                @endphp
                             </div>
                         </div>
                     </div>

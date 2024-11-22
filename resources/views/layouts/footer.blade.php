@@ -7,12 +7,6 @@
             <a href="{{ route('privacidad') }}" style="color:gray;text-decoration:none;">Aviso de privacidad</a>
         </div>
         <div class="col-md-3">
-            <h6><strong>CONTACTO Y MAPA DEL SITIO</strong></h6>
-            <a href="#" style="color:gray;text-decoration:none;">Contactenos</a>
-            <br>
-            <a href="#" style="color:gray;text-decoration:none;">Mapa del sitio</a>
-        </div>
-        <div class="col-md-3">
             <h6><strong>MI CUENTA</strong></h6>
             <a href="{{ route('cuenta') }}" style="color:gray;text-decoration:none;">Mi cuenta</a>
             <br>
@@ -24,6 +18,17 @@
                 class="btn btn-primary" title="Faceboox">
                 <span class="icon icon-facebook"></span>
             </a>
+        </div>
+        <div class="col-md-3">
+            <h6><strong>CONTACTO</strong></h6>
+            <small>
+                Dirección: Eleuterio Méndez 1540<br>
+                Col. San Simón Ticumac<br>
+                Benito Juárez, 03660<br>
+                CDMX, México.<br>
+                Teléfono: 55 55799356<br>
+                Whatssap: 55 13900518<br>
+            </small>
         </div>
     </div>
 </div>

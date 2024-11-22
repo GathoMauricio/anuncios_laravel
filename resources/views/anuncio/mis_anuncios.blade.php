@@ -11,9 +11,10 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>Folio</th>
                             <th>Estatus</th>
                             <th>Título</th>
-                            <th>Descripcion</th>
+                            {{--  <th>Descripcion</th>  --}}
                             <th>Precio</th>
                             <th>Borrador</th>
                             <th></th>
@@ -23,6 +24,28 @@
                     <tbody>
                         @forelse($anuncios as $anuncio)
                             <tr>
+                                <td>
+                                    <strong>
+                                        @php
+                                            switch (strlen($anuncio->id)) {
+                                                case 1:
+                                                    echo '0000' . $anuncio->id;
+                                                    break;
+                                                case 2:
+                                                    echo '000' . $anuncio->id;
+                                                    break;
+                                                case 3:
+                                                    echo '00' . $anuncio->id;
+                                                    break;
+                                                case 4:
+                                                    echo '0' . $anuncio->id;
+                                                    break;
+                                                default:
+                                                    echo $anuncio->id;
+                                            }
+                                        @endphp
+                                    </strong>
+                                </td>
                                 <td>
                                     {{ $anuncio->estatus->nombre }}
                                     {{--  @if ($anuncio->estatus->id == 1)
@@ -36,7 +59,7 @@
                                     @endif  --}}
                                 </td>
                                 <td>{{ $anuncio->titulo }}</td>
-                                <td>{{ $anuncio->descripcion }}</td>
+                                {{--  <td>{{ $anuncio->descripcion }}</td>  --}}
                                 <td>${{ $anuncio->precio }}</td>
                                 <td>{{ $anuncio->borrador }}</td>
                                 <td>

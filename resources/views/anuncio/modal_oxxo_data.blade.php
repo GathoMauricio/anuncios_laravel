@@ -1,17 +1,15 @@
 <!-- Modal -->
-<div class="modal fade" id="modal_spei_data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal_oxxo_data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Pagar vía SPEI</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Pagar vía OXXO</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                BANCO: <strong>HSBC</strong>
+                BANCO: <strong>Santander</strong>
                 <br>
-                CLIENTE: <strong>Comercializadora arm21</strong>
-                <br>
-                CLABE: <strong>014180655100413625</strong>
+                CUENTA: <strong>6551004136-2</strong>
                 <br>
                 CONCEPTO:
                 @if (isset($anuncio))
@@ -22,14 +20,26 @@
                 <br>
                 MONTO: <strong>$399 MXN</strong>
                 <hr>
-                Es importante que al realizar la transferencia nos hagas el favor de enviar tu comprobante de pago
+                BANCO: <strong>HSBC</strong>
+                <br>
+                CUENTA: <strong>406 669 4308</strong>
+                <br>
+                CONCEPTO:
+                @if (isset($anuncio))
+                    <strong>catinmo_<span id="span_spein_id">{{ $anuncio->id }}</span></strong>
+                @else
+                    (Se le enviará por correo)
+                @endif
+                <br>
+                MONTO: <strong>$399 MXN</strong>
+                <hr>
+                Es importante que al realizar el pago nos hagas el favor de enviar tu comprobante de pago
                 con el asunto
                 @if (isset($anuncio))
                     <strong>catinmo_<span id="span_spein_id">{{ $anuncio->id }}</span></strong>
                 @else
                     (Se le enviará por correo)
                 @endif
-
                 al siguente correo electrónico <a
                     href="mailto:gerencia@cateogriainmuebles.com">gerencia@cateogriainmuebles.com</a> <br>o al WhatssApp
                 <strong>55 13900518</strong> para poder validar
