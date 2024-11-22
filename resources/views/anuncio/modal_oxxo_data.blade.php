@@ -40,8 +40,7 @@
                 @else
                     (Se le enviará por correo)
                 @endif
-                al siguente correo electrónico <a
-                    href="mailto:gerencia@cateogriainmuebles.com">gerencia@cateogriainmuebles.com</a> <br>o al WhatssApp
+                al siguente correo electrónico <a href="mailto:ventas@arm21.mx">ventas@arm21.mx</a> <br>o al WhatssApp
                 <strong>55 13900518</strong> para poder validar
                 y actualizar el estatus de tu anuncio a la brevedad.
             </div>

@@ -64,7 +64,7 @@
     <br>
     Es importante que al realizar la transferencia nos hagas el favor de enviar tu comprobante de pago
     con el asunto <strong>"Pago catinmo_{{ $anuncio->id }}"</strong>
-    al siguente correo electrónico <a href="mailto:gerencia@cateogriainmuebles.com">gerencia@cateogriainmuebles.com</a>
+    al siguente correo electrónico <a href="mailto:ventas@arm21.mx">ventas@arm21.mx</a>
     <br>o al WhatssApp
     <strong>55 13900518</strong> para poder validar
     y actualizar el estatus de tu anuncio a la brevedad.
