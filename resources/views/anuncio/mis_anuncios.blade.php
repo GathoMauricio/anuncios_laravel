@@ -92,6 +92,13 @@
                                                 <span class="icon icon-star-full"></span>Hacer Premium con SPEI
                                             </label>
                                         </a>
+                                        <br>
+                                        <a href="javascript:void(0)" onclick="modalOxxoData({{ $anuncio->id }});">
+                                            <label class="bg-warning p-1 text-light"
+                                                style="border-radius:5px;font-size:10px;">
+                                                <span class="icon icon-star-full"></span>Hacer Premium con Oxxo
+                                            </label>
+                                        </a>
                                     @endif
                                 </td>
                             </tr>
@@ -137,12 +144,20 @@
     </div>
     @include('anuncio.modal_ver_foto')
     @include('anuncio.modal_spei_data')
+    @include('anuncio.modal_oxxo_data')
 @endsection
 @section('custom_js')
     <script>
         function modalSpeiData(anuncio_id) {
             $("#modal_spei_data").modal('show');
             $("#span_spein_id").text(anuncio_id);
+        }
+
+        function modalOxxoData(anuncio_id) {
+            $("#modal_oxxo_data").modal('show');
+            $("#span_oxxo_id").text(anuncio_id);
+            $("#span_concepto_santander_id").text(anuncio_id);
+            $("#span_concepto_hsbc_id").text(anuncio_id);
         }
     </script>
 @endsection

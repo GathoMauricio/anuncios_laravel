@@ -13,7 +13,7 @@
                 <br>
                 CONCEPTO:
                 @if (isset($anuncio))
-                    <strong>catinmo_<span id="span_spein_id">{{ $anuncio->id }}</span></strong>
+                    <strong>catinmo_<span id="span_concepto_santander_id">{{ $anuncio->id }}</span></strong>
                 @else
                     (Se le enviará por correo)
                 @endif
@@ -26,7 +26,7 @@
                 <br>
                 CONCEPTO:
                 @if (isset($anuncio))
-                    <strong>catinmo_<span id="span_spein_id">{{ $anuncio->id }}</span></strong>
+                    <strong>catinmo_<span id="span_concepto_hsbc_id">{{ $anuncio->id }}</span></strong>
                 @else
                     (Se le enviará por correo)
                 @endif
@@ -36,7 +36,7 @@
                 Es importante que al realizar el pago nos hagas el favor de enviar tu comprobante de pago
                 con el asunto
                 @if (isset($anuncio))
-                    <strong>catinmo_<span id="span_spein_id">{{ $anuncio->id }}</span></strong>
+                    <strong>catinmo_<span id="span_oxxo_id">{{ $anuncio->id }}</span></strong>
                 @else
                     (Se le enviará por correo)
                 @endif
