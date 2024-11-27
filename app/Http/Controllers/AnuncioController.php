@@ -161,6 +161,16 @@ class AnuncioController extends Controller
         return redirect()->route('mis_anuncios')->with('message', 'El registro ha sido actualizados correctamente.');
     }
 
+    public function updateEstatus(Request $request)
+    {
+        //Obtener anuncio
+        $anuncio = Anuncio::find($request->anuncio_id);
+        //Se actualiza el anuncio
+        if ($anuncio->update($request->all())) {
+            return redirect()->back()->with('message', 'El estatus ha sido actualizado correctamente.');
+        }
+    }
+
     public function hacerPremium($id): RedirectResponse
     {
         //Se buscar el anuncio

@@ -56,8 +56,27 @@
                                     <table>
                                         <tr>
                                             <td>
-                                                <a href="{{ route('ver_anuncio', $anuncio->id) }}" title="Ver"
-                                                    class="btn btn-primary"><span class="icon icon-eye"></span></a>
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="{{ route('ver_anuncio', $anuncio->id) }}" title="Ver"
+                                                                class="btn btn-primary"><span
+                                                                    class="icon icon-eye"></span></a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:void(0)"
+                                                                onclick="cambiarEstatus({{ $anuncio->id }},{{ $anuncio->estatus_id }});"
+                                                                title="Editar" class="btn btn-warning"><span
+                                                                    class="icon icon-pencil"
+                                                                    style="color:white;"></span></a>
+                                                        </td>
+                                                        {{--  <td>
+                                                            <a href="javascript:void(0)" title="Eliminar"
+                                                                class="btn btn-danger"><span
+                                                                    class="icon icon-bin"></span></a>
+                                                        </td>  --}}
+                                                    </tr>
+                                                </table>
                                             </td>
                                         </tr>
                                     </table>
@@ -82,6 +101,14 @@
         @include('layouts.footer')
     </div>
     @include('anuncio.modal_ver_foto')
+    @include('anuncio.modal_cambio_estatus')
 @endsection
 @section('custom_js')
+    <script>
+        function cambiarEstatus(anuncio_id, estatus_id) {
+            $("#txt_anuncio_id").val(anuncio_id);
+            $("#cbo_estatus_id").val(estatus_id);
+            $("#modal_cambio_estatus").modal('show');
+        }
+    </script>
 @endsection
