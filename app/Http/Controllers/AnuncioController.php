@@ -18,7 +18,7 @@ class AnuncioController extends Controller
     public function index()
     {
         if (Auth::user()->rol_id == 2) {
-            $anuncios = Anuncio::paginate(3);
+            $anuncios = Anuncio::paginate(10);
             return view('anuncio.index', compact('anuncios'));
         } else {
             return abort(403);
