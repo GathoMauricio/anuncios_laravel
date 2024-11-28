@@ -30,6 +30,9 @@
                 @if (Auth::check() && $anuncio->user_id == Auth()->user()->id)
                     Este anuncio es {{ $anuncio->estatus->nombre }}
                 @endif
+                <a href="javascript:void(0);" onclick="denunciarPublicacion({{ $anuncio->id }});" style="float:right;"
+                    class="text-danger">Desnunciar publicación</a>
+                <br>
                 <hr>
                 <strong>Categoria: </strong>{{ $anuncio->categoria->nombre }}
                 <br>
@@ -199,6 +202,7 @@
     @include('anuncio.modal_ver_foto')
     @include('anuncio.modal_spei_data')
     @include('anuncio.modal_oxxo_data')
+    @include('anuncio.modal_denunciar_publicacion')
 @endsection
 @section('custom_js')
     <script src="https://cdn.jsdelivr.net/npm/fabric"></script>
@@ -234,6 +238,11 @@
                 position: coord,
                 map: map
             });
+        }
+
+        function denunciarPublicacion(anuncio_id) {
+            $("#txt_denunciar_anuncio_id").val(anuncio_id);
+            $("#modal_denunciar_publicacion").modal('show');
         }
     </script>
     <script

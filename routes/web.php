@@ -33,6 +33,7 @@ Route::post('/store_anuncio', [App\Http\Controllers\AnuncioController::class, 's
 Route::put('/update_anuncio/{id}', [App\Http\Controllers\AnuncioController::class, 'update'])->name('update_anuncio')->middleware('auth');
 Route::put('/update_estatus_anuncio', [App\Http\Controllers\AnuncioController::class, 'updateEstatus'])->name('update_estatus_anuncio')->middleware('auth');
 Route::delete('/delete_anuncio/{id}', [App\Http\Controllers\AnuncioController::class, 'destroy'])->name('delete_anuncio')->middleware('auth');
+Route::post('/store_denuncia', [App\Http\Controllers\DenunciaController::class, 'store'])->name('store_denuncia');
 Route::get('/pago_exitoso/{id}', [App\Http\Controllers\AnuncioController::class, 'pagoExitoso'])->name('pago_exitoso');
 Route::get('/hacer_premium/{id}', [App\Http\Controllers\AnuncioController::class, 'hacerPremium'])->name('hacer_premium')->middleware('auth');
 Route::get('/subcategorias/{id?}', [App\Http\Controllers\CategoriaController::class, 'subcategorias'])->name('subcategorias');
