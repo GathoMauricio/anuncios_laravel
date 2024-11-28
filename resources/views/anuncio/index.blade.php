@@ -8,6 +8,24 @@
                 <a href="javascript:void(0)" onclick="history.back();"><span class="icon-undo"></span> Regresar</a>
                 <h2>Anuncios</h2>
                 {{ $anuncios->links('pagination::bootstrap-5') }}
+                <div class="col-md-4">
+                    <form action="{{ route('anuncios') }}">
+                        <table>
+                            <tr>
+                                <td>
+                                    <input class="form-control only_numbers" name="folio" type="text"
+                                        placeholder="Buscar Folio">
+                                </td>
+                                <td>
+                                    <button type="sumbit" class="btn btn-primary"><span
+                                            class="icon icon-search"></span></button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <a href="{{ route('anuncios') }}" style="float:right;">Mostrar todo</a>
+                <br>
                 <table class="table">
                     <thead>
                         <tr>
@@ -59,8 +77,8 @@
                                                 <table>
                                                     <tr>
                                                         <td>
-                                                            <a href="{{ route('ver_anuncio', $anuncio->id) }}" title="Ver"
-                                                                class="btn btn-primary"><span
+                                                            <a href="{{ route('ver_anuncio', $anuncio->id) }}"
+                                                                title="Ver" class="btn btn-primary"><span
                                                                     class="icon icon-eye"></span></a>
                                                         </td>
                                                         <td>
@@ -91,7 +109,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6">No se ha creado nungún anuncio</td>
+                                <td colspan="6">No se encontraron resultados</td>
                             </tr>
                         @endforelse
                     </tbody>

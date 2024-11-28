@@ -129,9 +129,14 @@
     <script src="{{ asset('alertify/alertify.min.js') }}"></script>
     <!-- FABRIC JS -->
     <script src="https://unpkg.com/fabric@5.3.0/dist/fabric.min.js"></script>
+    <!-- MASK JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+        integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(document).ready(function() {
             $(".select2").select2();
+            $('.only_numbers').mask('000000');
         });
     </script>
     @yield('custom_js')

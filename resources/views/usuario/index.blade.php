@@ -33,7 +33,24 @@
                                 <td>{{ $usuario->email }}</td>
                                 <td>{{ $usuario->telefono }}</td>
                                 <td>{{ $usuario->anuncios->count() }}</td>
-                                <td></td>
+                                <td>
+                                    {{--  <td>
+                                    <a href="$#" title="Editar" class="btn btn-warning"><span class="icon icon-pencil"
+                                            style="color:white;"></span></a>
+                                </td>  --}}
+                                    {{--  <td>
+                                        <a href="javascript:void(0)"
+                                            onclick="eliminarUsuario({{ $usuario->id }});"
+                                            title="Eliminar" class="btn btn-danger"><span
+                                                class="icon icon-bin"></span></a>
+                                        <form action="{{ route('delete_usuario', $usuario->id) }}"
+                                            id="form_eliminar_usuario_{{ $usuario->id }}"
+                                            method="POST" style="display:none;">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    </td>  --}}
+                                </td>
                             </tr>
                         @empty
                             <tr>

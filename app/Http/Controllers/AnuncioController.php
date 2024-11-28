@@ -15,10 +15,13 @@ use App\Models\FotoAnuncio;
 
 class AnuncioController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         if (Auth::user()->rol_id == 2) {
-            $anuncios = Anuncio::paginate(10);
+            $anuncios = Anuncio::orderBy('id', 'DESC')->paginate(10);
+            if ($request->folio) {
+                $anuncios = Anuncio::where('id', $request->folio)->paginate(10);
+            }
             return view('anuncio.index', compact('anuncios'));
         } else {
             return abort(403);
