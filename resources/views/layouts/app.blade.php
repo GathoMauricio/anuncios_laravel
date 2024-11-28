@@ -25,14 +25,6 @@
     <link href="{{ asset('alertify/css/alertify.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('alertify/css/themes/bootstrap.min.css') }}" rel="stylesheet" />
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdRUGoqAAAAAFNxt75SbQ-Lqpd0TOgDbhklJQ-K"></script>
-    {{--  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>  --}}
-    {{--  <script type="text/javascript">
-        var onloadCallback = function() {
-            grecaptcha.render('html_element', {
-                'sitekey': '6LfGXWsqAAAAAMnxOdwz9zCCufOGiVV1fzWTTkMl'
-            });
-        };
-    </script>  --}}
 </head>
 
 <body>

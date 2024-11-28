@@ -70,11 +70,18 @@
                                                                     class="icon icon-pencil"
                                                                     style="color:white;"></span></a>
                                                         </td>
-                                                        {{--  <td>
-                                                            <a href="javascript:void(0)" title="Eliminar"
-                                                                class="btn btn-danger"><span
+                                                        <td>
+                                                            <a href="javascript:void(0)"
+                                                                onclick="eliminarAnuncio({{ $anuncio->id }});"
+                                                                title="Eliminar" class="btn btn-danger"><span
                                                                     class="icon icon-bin"></span></a>
-                                                        </td>  --}}
+                                                            <form action="{{ route('delete_anuncio', $anuncio->id) }}"
+                                                                id="form_eliminar_anuncio_{{ $anuncio->id }}"
+                                                                method="POST" style="display:none;">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -109,6 +116,17 @@
             $("#txt_anuncio_id").val(anuncio_id);
             $("#cbo_estatus_id").val(estatus_id);
             $("#modal_cambio_estatus").modal('show');
+        }
+
+        function eliminarAnuncio(anuncio_id) {
+            alertify.confirm('¿Realmente deseas eliminar este anuncio?', function() {
+                $("#form_eliminar_anuncio_" + anuncio_id).submit();
+            }).set({
+                title: 'Espera'
+            }).set('labels', {
+                ok: 'Eliminar',
+                cancel: 'Cancelar'
+            });
         }
     </script>
 @endsection

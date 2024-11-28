@@ -259,4 +259,12 @@ class AnuncioController extends Controller
             return abort(403);
         }
     }
+
+    public function destroy(Request $request, $id)
+    {
+        $anuncio = Anuncio::findOrFail($id);
+        if ($anuncio->delete()) {
+            return redirect()->back()->with('message', 'El anuncio ha sido eliminado correctamente.');
+        }
+    }
 }
