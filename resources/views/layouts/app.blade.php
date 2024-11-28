@@ -85,6 +85,9 @@
                                         <a class="dropdown-item  text-danger" href="{{ route('anuncios') }}">
                                             Todos los anuncios
                                         </a>
+                                        <a class="dropdown-item  text-danger" href="{{ route('denuncias') }}">
+                                            Denuncias
+                                        </a>
                                         {{--  <a class="dropdown-item  text-danger" href="#">
                                             Categorías
                                         </a>  --}}
