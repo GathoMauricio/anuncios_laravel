@@ -26,94 +26,96 @@
                 </div>
                 <a href="{{ route('anuncios') }}" style="float:right;">Mostrar todo</a>
                 <br>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Folio</th>
-                            <th>Estatus</th>
-                            <th>Usuario</th>
-                            <th>Título</th>
-                            {{--  <th>Descripcion</th>  --}}
-                            <th>Precio</th>
-                            <th>Borrador</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse($anuncios as $anuncio)
+                <div style="width: 100%;overflow:hidden;overflow-x:scroll;">
+                    <table class="table">
+                        <thead>
                             <tr>
-                                <td>
-                                    <strong>
-                                        @php
-                                            switch (strlen($anuncio->id)) {
-                                                case 1:
-                                                    echo '0000' . $anuncio->id;
-                                                    break;
-                                                case 2:
-                                                    echo '000' . $anuncio->id;
-                                                    break;
-                                                case 3:
-                                                    echo '00' . $anuncio->id;
-                                                    break;
-                                                case 4:
-                                                    echo '0' . $anuncio->id;
-                                                    break;
-                                                default:
-                                                    echo $anuncio->id;
-                                            }
-                                        @endphp
-                                    </strong>
-                                </td>
-                                <td>{{ $anuncio->estatus->nombre }}</td>
-                                <td>{{ $anuncio->cliente->email }}</td>
-                                <td>{{ $anuncio->titulo }}</td>
-                                {{--  <td>{{ $anuncio->descripcion }}</td>  --}}
-                                <td>${{ $anuncio->precio }}</td>
-                                <td>{{ $anuncio->borrador }}</td>
-                                <td>
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <table>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="{{ route('ver_anuncio', $anuncio->id) }}"
-                                                                title="Ver" class="btn btn-primary"><span
-                                                                    class="icon icon-eye"></span></a>
-                                                        </td>
-                                                        <td>
-                                                            <a href="javascript:void(0)"
-                                                                onclick="cambiarEstatus({{ $anuncio->id }},{{ $anuncio->estatus_id }});"
-                                                                title="Editar" class="btn btn-warning"><span
-                                                                    class="icon icon-pencil"
-                                                                    style="color:white;"></span></a>
-                                                        </td>
-                                                        <td>
-                                                            <a href="javascript:void(0)"
-                                                                onclick="eliminarAnuncio({{ $anuncio->id }});"
-                                                                title="Eliminar" class="btn btn-danger"><span
-                                                                    class="icon icon-bin"></span></a>
-                                                            <form action="{{ route('delete_anuncio', $anuncio->id) }}"
-                                                                id="form_eliminar_anuncio_{{ $anuncio->id }}"
-                                                                method="POST" style="display:none;">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
+                                <th>Folio</th>
+                                <th>Estatus</th>
+                                <th>Usuario</th>
+                                <th>Título</th>
+                                {{--  <th>Descripcion</th>  --}}
+                                <th>Precio</th>
+                                <th>Borrador</th>
+                                <th></th>
                             </tr>
-                        @empty
-                            <tr>
-                                <td colspan="6">No se encontraron resultados</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @forelse($anuncios as $anuncio)
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            @php
+                                                switch (strlen($anuncio->id)) {
+                                                    case 1:
+                                                        echo '0000' . $anuncio->id;
+                                                        break;
+                                                    case 2:
+                                                        echo '000' . $anuncio->id;
+                                                        break;
+                                                    case 3:
+                                                        echo '00' . $anuncio->id;
+                                                        break;
+                                                    case 4:
+                                                        echo '0' . $anuncio->id;
+                                                        break;
+                                                    default:
+                                                        echo $anuncio->id;
+                                                }
+                                            @endphp
+                                        </strong>
+                                    </td>
+                                    <td>{{ $anuncio->estatus->nombre }}</td>
+                                    <td>{{ $anuncio->cliente->email }}</td>
+                                    <td>{{ $anuncio->titulo }}</td>
+                                    {{--  <td>{{ $anuncio->descripcion }}</td>  --}}
+                                    <td>${{ $anuncio->precio }}</td>
+                                    <td>{{ $anuncio->borrador }}</td>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="{{ route('ver_anuncio', $anuncio->id) }}"
+                                                                    title="Ver" class="btn btn-primary"><span
+                                                                        class="icon icon-eye"></span></a>
+                                                            </td>
+                                                            <td>
+                                                                <a href="javascript:void(0)"
+                                                                    onclick="cambiarEstatus({{ $anuncio->id }},{{ $anuncio->estatus_id }});"
+                                                                    title="Editar" class="btn btn-warning"><span
+                                                                        class="icon icon-pencil"
+                                                                        style="color:white;"></span></a>
+                                                            </td>
+                                                            <td>
+                                                                <a href="javascript:void(0)"
+                                                                    onclick="eliminarAnuncio({{ $anuncio->id }});"
+                                                                    title="Eliminar" class="btn btn-danger"><span
+                                                                        class="icon icon-bin"></span></a>
+                                                                <form action="{{ route('delete_anuncio', $anuncio->id) }}"
+                                                                    id="form_eliminar_anuncio_{{ $anuncio->id }}"
+                                                                    method="POST" style="display:none;">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="6">No se encontraron resultados</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="col-md-3 p-3" style="background-color:#eaeded">
                 <img src="{{ asset('img/publica.png') }}" width="100%">
