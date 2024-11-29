@@ -19,10 +19,10 @@
                                     <span class="icon icon-flag p-1" style="color:yellow;float:right"></span>
                                 @endif
                                 <a href="{{ route('ver_anuncio', $anuncio->id) }}"
-                                    @if ($anuncio->estatus_id == 2) style="color:#aed6f1;" @endif><strong>{{ $anuncio->titulo }}</strong></a>
+                                    @if ($anuncio->estatus_id == 2) style="color:#aed6f1;" @endif><strong>{{ Str::limit($anuncio->titulo, 25) }}</strong></a>
                                 <br>
                                 {{--  {{ $anuncio->categoria->nombre }} - {{ $anuncio->subcategoria->nombre }}  --}}
-                                {{ Str::limit($anuncio->descripcion, 50) }}
+                                {{ Str::limit($anuncio->descripcion, 25) }}
                             </div>
                             <a href="{{ route('ver_anuncio', $anuncio->id) }}">
                                 <div class="card-body">
