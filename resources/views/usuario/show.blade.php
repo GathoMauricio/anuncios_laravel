@@ -119,6 +119,25 @@
         @include('layouts.footer')
     </div>
     @include('anuncio.modal_ver_foto')
+    @include('anuncio.modal_cambio_estatus')
 @endsection
 @section('custom_js')
+    <script>
+        function cambiarEstatus(anuncio_id, estatus_id) {
+            $("#txt_anuncio_id").val(anuncio_id);
+            $("#cbo_estatus_id").val(estatus_id);
+            $("#modal_cambio_estatus").modal('show');
+        }
+
+        function eliminarAnuncio(anuncio_id) {
+            alertify.confirm('¿Realmente deseas eliminar este anuncio?', function() {
+                $("#form_eliminar_anuncio_" + anuncio_id).submit();
+            }).set({
+                title: 'Espera'
+            }).set('labels', {
+                ok: 'Eliminar',
+                cancel: 'Cancelar'
+            });
+        }
+    </script>
 @endsection
