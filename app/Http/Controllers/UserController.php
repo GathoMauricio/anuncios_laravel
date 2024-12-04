@@ -18,6 +18,26 @@ class UserController extends Controller
         }
     }
 
+    public function eliminados()
+    {
+        if (Auth::user()->rol_id == 2) {
+            $usuarios = User::onlyTrashed()->paginate(10);
+            return view('usuario.eliminados', compact('usuarios'));
+        } else {
+            return abort(403);
+        }
+    }
+
+    public function show($id)
+    {
+        if (Auth::user()->rol_id == 2) {
+            $usuario = User::findOrFail($id);
+            return view('usuario.show', compact('usuario'));
+        } else {
+            return abort(403);
+        }
+    }
+
     public function cuenta()
     {
         $usuario = Auth::user();
@@ -44,6 +64,18 @@ class UserController extends Controller
         $usuario->password = bcrypt($request->password);
         if ($usuario->save()) {
             return redirect()->route('cuenta')->with('message', 'Tu contraseña ha sido actualizados correctamente.');
+        }
+    }
+
+    public function destroy($id)
+    {
+        if (Auth::user()->rol_id == 2) {
+            $usuario = User::findOrFail($id);
+            if ($usuario->delete()) {
+                return redirect()->back()->with('message', 'El usuario ha sido eliminado correctamente.');
+            }
+        } else {
+            return abort(403);
         }
     }
 }

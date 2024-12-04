@@ -49,6 +49,11 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function rol()
+    {
+        return $this->hasOne(UserRol::class, 'id', 'rol_id');
+    }
+
     public function anuncios()
     {
         return $this->hasMany(Anuncio::class, 'user_id', 'id');

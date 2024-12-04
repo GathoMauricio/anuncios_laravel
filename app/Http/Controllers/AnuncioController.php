@@ -170,6 +170,14 @@ class AnuncioController extends Controller
         $anuncio = Anuncio::find($request->anuncio_id);
         //Se actualiza el anuncio
         if ($anuncio->update($request->all())) {
+            if ($request->estatus_id == 2) {
+                Mail::send('email.actualizacion_estatus', ['anuncio' => $anuncio], function ($mail) use ($anuncio) {
+                    $mail->subject('Categoría Inmuebles - Actualización de estatus');
+                    $mail->from('contacto@catinmo.com', 'Categoría Inmuebles');
+                    $mail->to([$anuncio->cliente->email]);
+                    $mail->cc(['ventas@arm21.mx', 'mauricio2769@gmail.com']);
+                });
+            }
             return redirect()->back()->with('message', 'El estatus ha sido actualizado correctamente.');
         }
     }

@@ -6,9 +6,9 @@
         <div class="row p-3">
             <div class="col-md-9 p-3" style="background-color:#eaeded">
                 <a href="javascript:void(0)" onclick="history.back();"><span class="icon-undo"></span> Regresar</a>
-                <h2>Usuarios</h2>
+                <h2>Usuarios eliminados</h2>
                 {{ $usuarios->links('pagination::bootstrap-5') }}
-                <a href="{{ route('usuarios_eliminados') }}" style="float:right;">Usuarios eliminados</a>
+                <a href="{{ route('usuarios') }}" style="float:right;">Usuarios activos</a>
                 <br><br>
                 <table class="table">
                     <thead>
@@ -38,26 +38,27 @@
                                 <td>
                                     <table>
                                         <tr>
-                                            <td>
+                                            {{--  <td>
                                                 <a href="{{ route('show_usuarios', $usuario->id) }}" title="Ver"
                                                     class="btn btn-primary"><span class="icon icon-eye"
                                                         style="color:white;"></span></a>
-                                            </td>
+                                            </td>  --}}
                                             {{--  <td>
                                     <a href="$#" title="Editar" class="btn btn-warning"><span class="icon icon-pencil"
                                             style="color:white;"></span></a>
                                 </td>  --}}
-                                            <td>
-                                                <a href="javascript:void(0)" onclick="eliminarUsuario({{ $usuario->id }});"
-                                                    title="Eliminar" class="btn btn-danger"><span
-                                                        class="icon icon-bin"></span></a>
-                                                <form action="{{ route('delete_usuario', $usuario->id) }}"
-                                                    id="form_eliminar_usuario_{{ $usuario->id }}" method="POST"
-                                                    style="display:none;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                </form>
-                                            </td>
+                                            {{--  <td>
+                                        <a href="javascript:void(0)"
+                                            onclick="eliminarUsuario({{ $usuario->id }});"
+                                            title="Eliminar" class="btn btn-danger"><span
+                                                class="icon icon-bin"></span></a>
+                                        <form action="{{ route('delete_usuario', $usuario->id) }}"
+                                            id="form_eliminar_usuario_{{ $usuario->id }}"
+                                            method="POST" style="display:none;">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    </td>  --}}
                                         </tr>
                                     </table>
                                 </td>
@@ -83,16 +84,4 @@
     @include('anuncio.modal_ver_foto')
 @endsection
 @section('custom_js')
-    <script>
-        function eliminarUsuario(usuario_id) {
-            alertify.confirm('¿Realmente deseas eliminar a este usuario?', function() {
-                $("#form_eliminar_usuario_" + usuario_id).submit();
-            }).set({
-                title: 'Espera'
-            }).set('labels', {
-                ok: 'Eliminar',
-                cancel: 'Cancelar'
-            });
-        }
-    </script>
 @endsection

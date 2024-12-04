@@ -42,3 +42,6 @@ Route::get('/cuenta', [App\Http\Controllers\UserController::class, 'cuenta'])->n
 Route::put('/actualizar_cuenta', [App\Http\Controllers\UserController::class, 'actualizarCuenta'])->name('actualizar_cuenta')->middleware('auth');
 Route::put('/actualizar_contrasena', [App\Http\Controllers\UserController::class, 'actualizarPassword'])->name('actualizar_contrasena')->middleware('auth');
 Route::get('/usuarios', [App\Http\Controllers\UserController::class, 'index'])->name('usuarios')->middleware('auth');
+Route::get('/show_usuarios/{id}', [App\Http\Controllers\UserController::class, 'show'])->name('show_usuarios')->middleware('auth');
+Route::get('/usuarios_eliminados', [App\Http\Controllers\UserController::class, 'eliminados'])->name('usuarios_eliminados')->middleware('auth');
+Route::delete('/delete_usuario/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('delete_usuario')->middleware('auth');
