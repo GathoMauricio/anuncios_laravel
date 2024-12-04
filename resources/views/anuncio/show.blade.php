@@ -165,7 +165,7 @@
                         <div class="card-header text-center" style="background-color:brown;color:white">
                             Convierte tu anuncio en
                             <label class="text-warning" style="font-size:14px;">
-                                <span class="icon icon-star-full"></span>Premium
+                                <span class="icon icon-flag"></span> Premium
                             </label>
                             <br>
                             y
