@@ -7,6 +7,20 @@ $(document).ready(function () {
     });
 });
 window.validarCrearAnuncio = () => {
+    // $.ajax({
+    //     url: "/analizar_texto?texto=qwerty",
+    //     type: "GET",
+    //     dataType: "json", // added data type
+    //     success: function (res) {
+    //         console.log(res);
+    //         alert(res);
+    //     },
+    //     fail: function (err) {
+    //         console.log(err);
+    //     },
+    // });
+    // console.log("Validando texto");
+    // return false;
     if ($("#cbo_categoria_id_create").val().length <= 0) {
         alertify.warning("Selecciona una categoría.");
         return false;
@@ -54,6 +68,8 @@ window.validarCrearAnuncio = () => {
             validacion_imagenes = false;
         }
     });
+
+    //Validar textos
 
     if (validacion_imagenes) {
         switch ($("#cbo_tipo_anuncio").val()) {
