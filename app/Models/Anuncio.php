@@ -40,7 +40,7 @@ class Anuncio extends Model
 
     public function cliente()
     {
-        return $this->hasOne(User::class, 'id', 'user_id');
+        return $this->hasOne(User::class, 'id', 'user_id')->withDefault();
     }
 
     public function estatus()
