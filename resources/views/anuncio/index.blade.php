@@ -66,7 +66,14 @@
                                         </strong>
                                     </td>
                                     <td>{{ $anuncio->estatus->nombre }}</td>
-                                    <td>{{ $anuncio->cliente->email }}</td>
+
+                                    <td>
+                                        @if (isset($anuncio->cliente->email))
+                                            {{ $anuncio->cliente->email }}
+                                        @else
+                                            No disponible
+                                        @endif
+                                    </td>
                                     <td>{{ $anuncio->titulo }}</td>
                                     {{--  <td>{{ $anuncio->descripcion }}</td>  --}}
                                     <td>${{ $anuncio->precio }}</td>
