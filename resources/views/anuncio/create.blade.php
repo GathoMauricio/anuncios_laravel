@@ -222,18 +222,6 @@
                                         </label>
                                     </div>
                                 </div>
-                                {{--  <div class="form-check form-switch">
-                                    <input class="form-check-input" style="width:60px;height: 30px;" name="premium"
-                                        type="checkbox" id="flexSwitchCheckDefaultPremium">
-
-                                    <label class="form-check-label" for="flexSwitchCheckDefaultPremium">
-                                        <strong>
-                                            &nbsp;&nbsp;&nbsp;
-                                            ¿Hacer Premium?
-                                        </strong>
-                                    </label>
-                                    <div id="html_element"></div>
-                                </div>  --}}
                                 <button class="g-recaptcha btn btn-danger"
                                     data-sitekey="6LdRUGoqAAAAAFNxt75SbQ-Lqpd0TOgDbhklJQ-K"
                                     data-callback='validarCrearAnuncio' data-action='submit'
@@ -260,24 +248,10 @@
     @include('anuncio.confirmacion')
     @include('anuncio.modal_spei_data')
     @include('anuncio.modal_oxxo_data')
+    @include('anuncio.modal_normas')
 @endsection
 @section('custom_js')
     <script>
-        function iniciarMap() {
-            var coord = {
-                lat: 19.3744195,
-                lng: -99.1496103
-            };
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 19,
-                center: coord
-            });
-            var marker = new google.maps.Marker({
-                position: coord,
-                map: map
-            });
-        }
-
         function municipiosCreate(id) {
             $("#cbo_municipio_create").html('<option value>¿Municipio?</option>');
             $("#cbo_colonia_create").html('<option value>Colonia?</option>');
@@ -329,11 +303,8 @@
             }
         }
 
-        function onSubmit(token) {
+        {{--  function onSubmit(token) {
             document.getElementById("demo-form").submit();
-        }
-    </script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoB6rmriGlDHt3t28H3DSvSMOU6h35gL8&callback=iniciarMap&loading=async">
+        }  --}}
     </script>
 @endsection

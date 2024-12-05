@@ -1,26 +1,14 @@
 import "./bootstrap";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 $(document).ready(function () {
     $("#frm_store_anuncio").submit((e) => {
         e.preventDefault();
+        validarCrearAnuncio();
     });
 });
 window.validarCrearAnuncio = () => {
-    // $.ajax({
-    //     url: "/analizar_texto?texto=qwerty",
-    //     type: "GET",
-    //     dataType: "json", // added data type
-    //     success: function (res) {
-    //         console.log(res);
-    //         alert(res);
-    //     },
-    //     fail: function (err) {
-    //         console.log(err);
-    //     },
-    // });
-    // console.log("Validando texto");
-    // return false;
     if ($("#cbo_categoria_id_create").val().length <= 0) {
         alertify.warning("Selecciona una categoría.");
         return false;
@@ -69,24 +57,68 @@ window.validarCrearAnuncio = () => {
         }
     });
 
-    //Validar textos
+    var valida_texto = true;
 
-    if (validacion_imagenes) {
-        switch ($("#cbo_tipo_anuncio").val()) {
-            case "gratis":
-                $("#frm_store_anuncio")[0].submit();
-                break;
-            case "stripe":
-                $("#modal_confirmacion_create").modal("show");
-                break;
-            case "spei":
-                $("#modal_spei_data").modal("show");
-                break;
-            case "oxxo":
-                $("#modal_oxxo_data").modal("show");
-                break;
+    axios
+        .get("/analizar_texto/" + $("#txt_titulo_create").val())
+        .then((response) => {
+            if (
+                response.data.attributeScores.IDENTITY_ATTACK.summaryScore
+                    .value > 0.1 ||
+                response.data.attributeScores.INSULT.summaryScore.value > 0.1 ||
+                response.data.attributeScores.PROFANITY.summaryScore.value >
+                    0.1 ||
+                response.data.attributeScores.SEVERE_TOXICITY.summaryScore
+                    .value > 0.1
+            ) {
+                $("#modal_normas").modal("show");
+                valida_texto = false;
+                return false;
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+    axios
+        .get("/analizar_texto/" + $("#txt_descripcion_create").val())
+        .then((response) => {
+            if (
+                response.data.attributeScores.IDENTITY_ATTACK.summaryScore
+                    .value > 0.1 ||
+                response.data.attributeScores.INSULT.summaryScore.value > 0.1 ||
+                response.data.attributeScores.PROFANITY.summaryScore.value >
+                    0.1 ||
+                response.data.attributeScores.SEVERE_TOXICITY.summaryScore
+                    .value > 0.1
+            ) {
+                $("#modal_normas").modal("show");
+                valida_texto = false;
+                return false;
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+    setTimeout(function () {
+        if (validacion_imagenes && valida_texto) {
+            switch ($("#cbo_tipo_anuncio").val()) {
+                case "gratis":
+                    $("#frm_store_anuncio")[0].submit();
+                    break;
+                case "stripe":
+                    $("#modal_confirmacion_create").modal("show");
+                    break;
+                case "spei":
+                    $("#modal_spei_data").modal("show");
+                    break;
+                case "oxxo":
+                    $("#modal_oxxo_data").modal("show");
+                    break;
+            }
         }
-    }
+    }, 2000);
 };
 
 var contadorImagenes = 0;
