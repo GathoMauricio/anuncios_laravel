@@ -72,10 +72,6 @@
     <p>
         Contáctanos
         <br><br>
-        Dirección: Eleuterio Méndez 1540<br>
-        Col. San Simón Ticumac<br>
-        Benito Juárez, 03660<br>
-        CDMX, México.<br>
         Teléfono: 55 55799356<br>
         Whatssap: 55 13900518<br>
     </p>

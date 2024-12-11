@@ -20,18 +20,19 @@
                                     <span class="icon icon-flag p-1" style="color:yellow;float:right"></span>
                                 @endif
                                 <a href="{{ route('ver_anuncio', $anuncio->id) }}"
-                                    @if ($anuncio->estatus_id == 2) style="color:#aed6f1;" @endif><strong>{{ $anuncio->titulo }}</strong></a>
+                                    @if ($anuncio->estatus_id == 2) style="color:#aed6f1;" @endif><strong>{{ Str::limit($anuncio->titulo, 25) }}</strong></a>
                                 <br>
-                                {{ $anuncio->categoria->nombre }} - {{ $anuncio->subcategoria->nombre }}
+                                {{--  {{ $anuncio->categoria->nombre }} - {{ $anuncio->subcategoria->nombre }}  --}}
+                                {{ Str::limit($anuncio->descripcion, 25) }}
                             </div>
                             <a href="{{ route('ver_anuncio', $anuncio->id) }}">
                                 <div class="card-body">
                                     @if (isset($anuncio->fotos[0]->ruta))
                                         <img src="{{ asset('storage/fotos_anuncios/' . $anuncio->fotos[0]->ruta) }}"
-                                            width="100%" height="400">
+                                            width="100%" height="200">
                                     @else
                                         <img src="{{ asset('https://images.adsttc.com/media/images/528c/a1a0/e8e4/4efc/1f00/00c3/newsletter/IMG_6201.jpg') }}"
-                                            width="100%" height="400">
+                                            width="100%" height="200">
                                     @endif
                                 </div>
                             </a>

@@ -243,13 +243,13 @@ class AnuncioController extends Controller
         if ($request->municipio_id) {
             $anuncios = $anuncios->where('categoria_id', $request->municipio_id);
         }
-        $anuncios = $anuncios->where('borrador', 'NO')->orderBy('estatus_id', 'DESC')->paginate(9);
+        $anuncios = $anuncios->where('borrador', 'NO')->orderBy('estatus_id', 'DESC')->paginate(12);
         return view('anuncio.buscar', compact('anuncios'));
     }
 
     public function todo(Request $request)
     {
-        $anuncios = Anuncio::where('borrador', 'NO')->orderBy('id', 'DESC')->paginate(9);
+        $anuncios = Anuncio::where('borrador', 'NO')->orderBy('estatus_id', 'DESC')->paginate(12);
         return view('anuncio.todo', compact('anuncios'));
     }
 
