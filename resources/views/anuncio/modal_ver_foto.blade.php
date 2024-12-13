@@ -17,10 +17,9 @@
         Cerrar
     </a>
     <center>
-        {{--  <canvas id="canvas_modal_ver_foto">
-
-        </canvas>  --}}
-        <img src="http://anuncios_laravel.test/storage/fotos_anuncios/G7Cy6TkO1ewjnJpQC5yGHE8xuAaFReuB3OLMr16f.jpg"
-            width="50%" id="img_ver_foto" />
+        <div style="width:50%;height: 75vh;padding:10px;overflow:hidden;overflow-y:scroll;">
+            <img src="http://anuncios_laravel.test/storage/fotos_anuncios/G7Cy6TkO1ewjnJpQC5yGHE8xuAaFReuB3OLMr16f.jpg"
+                width="100%" id="img_ver_foto" />
+        </div>
     </center>
 </div>
