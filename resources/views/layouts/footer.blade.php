@@ -27,7 +27,7 @@
                 Benito Juárez, 03660<br>
                 CDMX, México.<br>
                 Teléfono: 55 55799356<br>
-                Whatssap: 55 13900518<br>
+                WhatsApp: 55 13900518<br>
             </small>
         </div>
     </div>
