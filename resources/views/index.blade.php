@@ -30,7 +30,7 @@
                                         <img src="{{ asset('storage/fotos_anuncios/' . $anuncio->fotos[0]->ruta) }}"
                                             width="100%" height="200">
                                     @else
-                                        <img src="{{ asset('https://images.adsttc.com/media/images/528c/a1a0/e8e4/4efc/1f00/00c3/newsletter/IMG_6201.jpg') }}"
+                                        <img src="https://img.freepik.com/vector-premium/hermoso-diseno-exterior-casa-dibujos-animados-moderna-frente-carretera_646586-582.jpg"
                                             width="100%" height="200">
                                     @endif
                                 </div>

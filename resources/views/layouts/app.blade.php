@@ -25,6 +25,32 @@
     <link href="{{ asset('alertify/css/alertify.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('alertify/css/themes/bootstrap.min.css') }}" rel="stylesheet" />
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdRUGoqAAAAAFNxt75SbQ-Lqpd0TOgDbhklJQ-K"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            padding: 10px;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-size: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 1000;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #1ebc5a;
+            transform: scale(1.1);
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -123,6 +149,10 @@
             @yield('content')
         </main>
     </div>
+    <a href="https://wa.me/5539799471?text=Hola%20me%20gustaría%20más%20información" class="whatsapp-button"
+        target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>

@@ -31,7 +31,7 @@
                 @endif
 
                 al siguente correo electrónico <a href="mailto:ventas@arm21.mx">ventas@arm21.mx</a> <br>o al WhatssApp
-                <strong>55 13900518</strong> para poder validar
+                <strong>5539799471</strong> para poder validar
                 y actualizar el estatus de tu anuncio a la brevedad.
             </div>
             <div class="modal-footer">

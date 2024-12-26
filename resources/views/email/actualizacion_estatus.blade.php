@@ -20,7 +20,7 @@
         Contáctanos
         <br><br>
         Teléfono: 55 55799356<br>
-        Whatssap: 55 13900518<br>
+        Whatssap: 55 39799471<br>
     </p>
 </body>
 

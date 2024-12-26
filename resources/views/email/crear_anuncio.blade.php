@@ -66,14 +66,14 @@
     con el asunto <strong>"Pago catinmo_{{ $anuncio->id }}"</strong>
     al siguente correo electrónico <a href="mailto:ventas@arm21.mx">ventas@arm21.mx</a>
     <br>o al WhatssApp
-    <strong>55 13900518</strong> para poder validar
+    <strong>55 39799471</strong> para poder validar
     y actualizar el estatus de tu anuncio a la brevedad.
     </p>
     <p>
         Contáctanos
         <br><br>
         Teléfono: 55 55799356<br>
-        Whatssap: 55 13900518<br>
+        Whatssap: 55 39799471<br>
     </p>
 </body>
 
