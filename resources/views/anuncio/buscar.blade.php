@@ -24,6 +24,12 @@
                                 <br>
                                 {{--  {{ $anuncio->categoria->nombre }} - {{ $anuncio->subcategoria->nombre }}  --}}
                                 {{ Str::limit($anuncio->descripcion, 25) }}
+                                <br>
+                                <div style="float:right;">
+                                    <div class="fb-share-button" data-href="{{ route('ver_anuncio', $anuncio->id) }}"
+                                        data-layout="button_count">
+                                    </div>
+                                </div>
                             </div>
                             <a href="{{ route('ver_anuncio', $anuncio->id) }}">
                                 <div class="card-body">

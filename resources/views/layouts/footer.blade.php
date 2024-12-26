@@ -18,6 +18,10 @@
                 class="btn btn-primary" title="Faceboox">
                 <span class="icon icon-facebook"></span>
             </a>
+            &nbsp;&nbsp;&nbsp;
+            <div class="fb-like" data-href="https://www.facebook.com/profile.php?id=100066751009079&locale=es_LA"
+                data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false">
+            </div>
         </div>
         <div class="col-md-3">
             <h6><strong>CONTACTO</strong></h6>

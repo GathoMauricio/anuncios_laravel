@@ -54,6 +54,9 @@
 </head>
 
 <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0">
+    </script>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
             <div class="container">
@@ -149,6 +152,7 @@
             @yield('content')
         </main>
     </div>
+
     <a href="https://wa.me/5539799471?text=Hola%20me%20gustaría%20más%20información" class="whatsapp-button"
         target="_blank">
         <i class="fab fa-whatsapp"></i>

@@ -193,6 +193,9 @@
                 <img src="{{ asset('img/publica.png') }}" width="100%">
                 <br><br>
                 <img src="{{ asset('img/como.png') }}" width="100%">
+                <div class="fb-comments" data-href="{{ route('ver_anuncio', $anuncio->id) }}" data-width="100%"
+                    data-numposts="5">
+                </div>
             </div>
         </div>
         <hr>
