@@ -54,9 +54,6 @@
 </head>
 
 <body>
-    @php
-        $cliente_sesion = request()->session()->get('cliente', 'default_value');
-    @endphp
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0">
     </script>
@@ -155,7 +152,7 @@
             @yield('content')
         </main>
     </div>
-    @if ($cliente_sesion != 'flutter')
+    @if (request()->session()->get('cliente', 'default_value') != 'flutter')
         <a href="https://wa.me/5539799471?text=Hola%20me%20gustaría%20más%20información" class="whatsapp-button"
             target="_blank">
             <i class="fab fa-whatsapp"></i>

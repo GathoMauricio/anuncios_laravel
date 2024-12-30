@@ -12,17 +12,19 @@
             <br>
             <a href="{{ route('mis_anuncios') }}" style="color:gray;text-decoration:none;">Mis anuncios</a>
         </div>
-        <div class="col-md-3">
-            <h6><strong>SÍGUENOS EN</strong></h6>
-            <a href="https://www.facebook.com/profile.php?id=100066569195961&mibextid=ZbWKwL" target="_blank"
-                class="btn btn-primary" title="Faceboox">
-                <span class="icon icon-facebook"></span>
-            </a>
-            &nbsp;&nbsp;&nbsp;
-            <div class="fb-like" data-href="https://www.facebook.com/profile.php?id=100066751009079&locale=es_LA"
-                data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false">
+        @if (request()->session()->get('cliente', 'default_value') != 'flutter')
+            <div class="col-md-3">
+                <h6><strong>SÍGUENOS EN</strong></h6>
+                <a href="https://www.facebook.com/profile.php?id=100066569195961&mibextid=ZbWKwL" target="_blank"
+                    class="btn btn-primary" title="Faceboox">
+                    <span class="icon icon-facebook"></span>
+                </a>
+                &nbsp;&nbsp;&nbsp;
+                <div class="fb-like" data-href="https://www.facebook.com/profile.php?id=100066751009079&locale=es_LA"
+                    data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false">
+                </div>
             </div>
-        </div>
+        @endif
         <div class="col-md-3">
             <h6><strong>CONTACTO</strong></h6>
             <small>
