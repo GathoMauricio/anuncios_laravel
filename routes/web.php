@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +47,17 @@ Route::get('/show_usuarios/{id}', [App\Http\Controllers\UserController::class, '
 Route::get('/usuarios_eliminados', [App\Http\Controllers\UserController::class, 'eliminados'])->name('usuarios_eliminados')->middleware('auth');
 Route::delete('/delete_usuario/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('delete_usuario')->middleware('auth');
 Route::get('/analizar_texto/{texto}', [App\Http\Controllers\HelperController::class, 'analizarTexto'])->name('analizar_texto')->middleware('auth');
+
+//sesiones ara identificar si el cliente es flutter
+Route::get('/source_flutter', function (Request $request) {
+    $request->session()->put('cliente', 'flutter');
+    return redirect()->route('/');
+})->name('source_flutter');
+Route::get('obtener_cliente_sesion', function (Request $request) {
+    $cliente = $request->session()->get('cliente', 'default_value');
+    return 'cliente: ' . $cliente;
+});
+Route::get('eliminar_cliente_sesion', function (Request $request) {
+    $request->session()->forget('cliente');
+    return 'sessión eliminada';
+});
