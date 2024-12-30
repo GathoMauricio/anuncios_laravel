@@ -18,7 +18,8 @@
                                 <div class="form-group">
                                     <label style="font-weight: bold;">Categoría</label>
                                     <select name="categoria_id" id="cbo_categoria_id_create"
-                                        onchange="subcategorias(this.value)" class="form-select select2">
+                                        onchange="subcategorias(this.value)"
+                                        class="form-select @if (request()->session()->get('cliente', 'default_value') != 'flutter') select2 @endif">
                                         <option value>Selecciona una categoría</option>
                                         @foreach ($categorias as $key => $categoria)
                                             <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
@@ -30,7 +31,7 @@
                                 <div class="form-group">
                                     <label style="font-weight: bold;">Subcategoria</label>
                                     <select name="subcategoria_id" id="cbo_subcategoria_id_create"
-                                        class="form-select select2">
+                                        class="form-select @if (request()->session()->get('cliente', 'default_value') != 'flutter') select2 @endif">
                                         <option value>Selecciona una subcategoría</option>
                                     </select>
                                 </div>
@@ -131,7 +132,8 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group">
-                                    <select name="estado_id" id="cbo_estado_create" class="form-select select2"
+                                    <select name="estado_id" id="cbo_estado_create"
+                                        class="form-select @if (request()->session()->get('cliente', 'default_value') != 'flutter') select2 @endif"
                                         onchange="municipiosCreate(this.value)">
                                         <option value>¿Estado?</option>
                                         @foreach ($estados as $estado)
@@ -142,7 +144,8 @@
                             </div>
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group">
-                                    <select name="municipio_id" id="cbo_municipio_create" class="form-select select2"
+                                    <select name="municipio_id" id="cbo_municipio_create"
+                                        class="form-select @if (request()->session()->get('cliente', 'default_value') != 'flutter') select2 @endif"
                                         onchange="coloniasCreate(this.value)">
                                         <option value>¿Municipio?</option>
                                     </select>
@@ -150,7 +153,8 @@
                             </div>
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group">
-                                    <select name="colonia_id" id="cbo_colonia_create" class="form-select select2"
+                                    <select name="colonia_id" id="cbo_colonia_create"
+                                        class="form-select @if (request()->session()->get('cliente', 'default_value') != 'flutter') select2 @endif"
                                         onchange="cpCreate(this.value)">
                                         <option value>¿Colonia?</option>
                                     </select>

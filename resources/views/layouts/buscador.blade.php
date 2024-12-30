@@ -13,7 +13,8 @@
             <div class="row p-3" style="background-color: brown;border-radius:10px;">
                 <div class="col-md-3 col-sm-12">
                     <div class="form-group">
-                        <select name="categoria_id" class="form-select select2">
+                        <select name="categoria_id"
+                            class="form-select @if (request()->session()->get('cliente', 'default_value') != 'flutter') select2 @endif">
                             <option value>¿Qué buscas?</option>
                             @foreach ($categorias as $key => $categoria)
                                 <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
@@ -23,7 +24,8 @@
                 </div>
                 <div class="col-md-3 col-sm-12">
                     <div class="form-group">
-                        <select name="estado_id" class="form-select select2" onchange="municipios(this.value)">
+                        <select name="estado_id" class="form-select @if (request()->session()->get('cliente', 'default_value') != 'flutter') select2 @endif"
+                            onchange="municipios(this.value)">
                             <option value>¿Estado?</option>
                             @foreach ($estados as $estado)
                                 <option value="{{ $estado->idestado }}">{{ $estado->estado }}</option>
@@ -33,7 +35,8 @@
                 </div>
                 <div class="col-md-3 col-sm-12">
                     <div class="form-group">
-                        <select name="municipio_id" id="cbo_municipio" class="form-select select2">
+                        <select name="municipio_id" id="cbo_municipio"
+                            class="form-select @if (request()->session()->get('cliente', 'default_value') != 'flutter') select2 @endif">
                             <option value>¿Municipio?</option>
                         </select>
                     </div>
