@@ -31,7 +31,7 @@
                     Este anuncio es {{ $anuncio->estatus->nombre }}
                 @endif
                 <a href="javascript:void(0);" onclick="denunciarPublicacion({{ $anuncio->id }});" style="float:right;"
-                    class="text-danger">Desnunciar publicación</a>
+                    class="text-danger">Denunciar publicación</a>
                 <br>
                 <hr>
                 <strong>Categoria: </strong>{{ $anuncio->categoria->nombre }}

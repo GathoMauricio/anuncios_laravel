@@ -168,3 +168,7 @@ window.quitarImagen = (id) => {
         );
     }
 };
+
+window.modalCompartir = (anuncio_id) => {
+    $("#modal_compartir_" + anuncio_id).modal("show");
+};

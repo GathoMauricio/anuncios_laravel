@@ -24,14 +24,21 @@
                                 <br>
                                 {{--  {{ $anuncio->categoria->nombre }} - {{ $anuncio->subcategoria->nombre }}  --}}
                                 {{ Str::limit($anuncio->descripcion, 25) }}
-
+                                <br>
+                                <span class="text-warning">{{ $anuncio->estado->estado }}</span>
                                 @if (request()->session()->get('cliente', 'default_value') != 'flutter')
-                                    <br>
-                                    <div style="float:right;">
+                                    {{--  <div style="float:right;">
                                         <div class="fb-share-button" data-href="{{ route('ver_anuncio', $anuncio->id) }}"
-                                            data-layout="button_count">
+                                            data-layout="button_count" style="display:none;"
+                                            id="btn_share_fb_{{ $anuncio->id }}">
                                         </div>
-                                    </div>
+                                        <a href="javascript:void(0)" onclick="modalCompartir({{ $anuncio->id }});"
+                                            class="text-info" style="text-decoration: none;"><span
+                                                class="icon icon-share2"></span></a>
+                                        @include('anuncio.modal_compartir', [
+                                            'share_anuncio_id' => $anuncio->id,
+                                        ])
+                                    </div>  --}}
                                 @endif
                             </div>
                             <a href="{{ route('ver_anuncio', $anuncio->id) }}">
