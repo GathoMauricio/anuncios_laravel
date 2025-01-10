@@ -26,6 +26,11 @@
                                 <br>
                                 <span class="text-warning">{{ $anuncio->estado->estado }}</span>
                                 @if (request()->session()->get('cliente', 'default_value') != 'flutter')
+                                    <div style="float:right;">
+                                        <a href="https://wa.me/?text={{ urlencode('¡catinmo.com! ' . $anuncio->titulo . ' ' . route('ver_anuncio', $anuncio->id)) }}"
+                                            target="_blank" style="text-decoration: none;color:white;"><span
+                                                class="icon icon-share2"></span></a>
+                                    </div>
                                     {{--  <div style="float:right;">
                                         <div class="fb-share-button" data-href="{{ route('ver_anuncio', $anuncio->id) }}"
                                             data-layout="button_count" style="display:none;"
