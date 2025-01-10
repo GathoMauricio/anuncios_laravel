@@ -62,16 +62,16 @@
                                 @php
                                     switch (strlen($anuncio->id)) {
                                         case 1:
-                                            echo '0000' . $anuncio->id;
+                                            echo '3000' . $anuncio->id;
                                             break;
                                         case 2:
-                                            echo '000' . $anuncio->id;
+                                            echo '300' . $anuncio->id;
                                             break;
                                         case 3:
-                                            echo '00' . $anuncio->id;
+                                            echo '30' . $anuncio->id;
                                             break;
                                         case 4:
-                                            echo '0' . $anuncio->id;
+                                            echo '3' . $anuncio->id;
                                             break;
                                         default:
                                             echo $anuncio->id;

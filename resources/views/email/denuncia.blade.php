@@ -17,16 +17,16 @@
         @php
             switch (strlen($denuncia->anuncio->id)) {
                 case 1:
-                    echo '0000' . $denuncia->anuncio->id;
+                    echo '3000' . $denuncia->anuncio->id;
                     break;
                 case 2:
-                    echo '000' . $denuncia->anuncio->id;
+                    echo '300' . $denuncia->anuncio->id;
                     break;
                 case 3:
-                    echo '00' . $denuncia->anuncio->id;
+                    echo '30' . $denuncia->anuncio->id;
                     break;
                 case 4:
-                    echo '0' . $denuncia->anuncio->id;
+                    echo '3' . $denuncia->anuncio->id;
                     break;
                 default:
                     echo $denuncia->anuncio->id;
