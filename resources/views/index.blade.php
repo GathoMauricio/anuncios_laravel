@@ -28,7 +28,7 @@
                                 @if (request()->session()->get('cliente', 'default_value') != 'flutter')
                                     <div style="float:right;">
                                         <a href="https://wa.me/?text={{ urlencode('catinmo.com ' . $anuncio->titulo . ' ' . route('ver_anuncio', $anuncio->id)) }}"
-                                            target="_blank" style="text-decoration: none;color:white;"><span
+                                            target="_blank" style="text-decoration: none;color:#1abc9c;"><span
                                                 class="icon icon-share2"></span></a>
                                     </div>
                                     {{--  <div style="float:right;">
