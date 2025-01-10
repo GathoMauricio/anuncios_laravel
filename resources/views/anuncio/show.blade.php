@@ -5,6 +5,11 @@
     <div class="container p3">
         <div class="row p-3">
             <div class="col-md-9 p-3" style="background-color:#eaeded">
+                <div style="float:right;">
+                    <a href="https://wa.me/?text={{ urlencode('catinmo.com ' . $anuncio->titulo . ' ' . route('ver_anuncio', $anuncio->id)) }}"
+                        target="_blank" style="text-decoration: none;color:#1abc9c;font-size:22px;"><span
+                            class="icon icon-share2"></span></a>
+                </div>
                 <a href="javascript:void(0)" onclick="history.back();"><span class="icon-undo"></span> Regresar</a>
                 <h2>
                     Detalle del anuncio
