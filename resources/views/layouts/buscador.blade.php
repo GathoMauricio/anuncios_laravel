@@ -4,7 +4,9 @@
 @endphp
 <div class="p-3" style="background-color: white" id="div_buscador">
     <h1 class="text-center"><strong>Anuncios de Venta y Renta de Inmuebles</strong></h1>
-    <br>
+    <center>
+        <a href="{{ route('crear_anuncio') }}" class="btn btn-danger" style="background-color: brown;">Anúnciate aquí</a>
+    </center>
     <h4 class="text-center"><strong>Portal 100% mexicano rápido y eficiente</strong></h4>
     <br>
     <form class="form" action="{{ route('buscar') }}" method="GET">
