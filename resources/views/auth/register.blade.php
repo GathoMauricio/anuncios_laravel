@@ -5,8 +5,10 @@
         <div class="row">
             <div class="col-md-9 p-3" style="background-color:#eaeded">
                 <div class="card">
-                    <div class="card-header" style="background-color: brown;color:white;"><strong>Registro</strong></div>
-
+                    <div class="card-header" style="background-color: brown;color:white;">
+                        <strong style="float:right;">Vende más Anuncia GRATIS en todo Mexico</strong>
+                        <strong>Registro</strong>
+                    </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf

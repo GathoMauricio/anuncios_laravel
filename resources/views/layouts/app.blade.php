@@ -9,6 +9,18 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Catinmo">
+    <meta property="og:description" content="Anuncios de Venta y Renta de Inmuebles.">
+    <meta property="og:image" content="https://www.catinmo.com/img/logo.png">
+    <meta property="og:url" content="https://catinmo.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card meta tags (opcional) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Catinmo">
+    <meta name="twitter:description" content="Anuncios de Venta y Renta de Inmuebles.">
+    <meta name="twitter:image" content="https://www.catinmo.com/img/logo.png">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
