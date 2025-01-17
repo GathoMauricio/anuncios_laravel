@@ -40,8 +40,8 @@
     <div class="row">
         <div class="col-md-12 text-center">
             | Copyright © {{ date('2025') }} |
-            <a href="https://www.facebook.com/search/top?q=katzesystems.inc"><img
-                    src="{{ asset('img/logo_katze.png') }}" width="20" height="20"> KatzeSystems.Inc</a>
+            <a href="https://www.facebook.com/KatzeSystems.Inc"><img src="{{ asset('img/logo_katze.png') }}"
+                    width="20" height="20"> KatzeSystems.Inc</a>
             | Todos los derechos reservados. |
         </div>
     </div>
