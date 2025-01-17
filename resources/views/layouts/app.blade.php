@@ -12,7 +12,7 @@
     <!-- Open Graph meta tags -->
     <meta property="og:title" content="Catinmo">
     <meta property="og:description" content="Anuncios de Venta y Renta de Inmuebles.">
-    <meta property="og:image" content="https://www.catinmo.com/img/logo.png">
+    <meta property="og:image" content="https://www.catinmo.com/img/catinmo.png">
     <meta property="og:url" content="https://catinmo.com">
     <meta property="og:type" content="website">
 
@@ -20,7 +20,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Catinmo">
     <meta name="twitter:description" content="Anuncios de Venta y Renta de Inmuebles.">
-    <meta name="twitter:image" content="https://www.catinmo.com/img/logo.png">
+    <meta name="twitter:image" content="https://www.catinmo.com/img/catinmo.png">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
