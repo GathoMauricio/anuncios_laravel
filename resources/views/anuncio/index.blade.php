@@ -90,16 +90,22 @@
                                                                         class="icon icon-eye"></span></a>
                                                             </td>
                                                             <td>
-                                                                <a href="javascript:void(0)"
-                                                                    onclick="cambiarEstatus({{ $anuncio->id }},{{ $anuncio->estatus_id }});"
+                                                                <a href="{{ route('editar_anuncio', $anuncio->id) }}"
                                                                     title="Editar" class="btn btn-warning"><span
                                                                         class="icon icon-pencil"
                                                                         style="color:white;"></span></a>
                                                             </td>
                                                             <td>
                                                                 <a href="javascript:void(0)"
+                                                                    onclick="cambiarEstatus({{ $anuncio->id }},{{ $anuncio->estatus_id }});"
+                                                                    title="Editar" class="btn btn-info"><span
+                                                                        class="icon icon-star-full"
+                                                                        style="color:white;"></span></a>
+                                                            </td>
+                                                            <td>
+                                                                <a href="javascript:void(0)"
                                                                     onclick="eliminarAnuncio({{ $anuncio->id }});"
-                                                                    title="Eliminar" class="btn btn-danger"><span
+                                                                    title="Eliminar" class="btn btn-warning"><span
                                                                         class="icon icon-bin"></span></a>
                                                                 <form action="{{ route('delete_anuncio', $anuncio->id) }}"
                                                                     id="form_eliminar_anuncio_{{ $anuncio->id }}"
