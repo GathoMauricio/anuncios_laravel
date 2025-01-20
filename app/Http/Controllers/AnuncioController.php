@@ -264,7 +264,7 @@ class AnuncioController extends Controller
         $anuncio = Anuncio::findOrFail($id);
         $categorias = Categoria::all();
         $estados = Estado::all();
-        if ($anuncio->user_id == Auth::user()->id || \Auth::user->hasRole('Administrador')) {
+        if ($anuncio->user_id == Auth::user()->id || \Auth::user()->hasRole('Administrador')) {
             return view('anuncio.editar_anuncio', compact('anuncio', 'categorias', 'estados'));
         } else {
             return abort(403);
