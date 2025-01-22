@@ -71,6 +71,22 @@
                                 </div>
                             </div>
 
+                            <div class="row mb-3">
+                                <div class="col-md-6 offset-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="aceptar_tyc" id="remember"
+                                            required>
+
+                                        <label class="form-check-label" for="aceptar_tyc">
+                                            He leído y acepto el <a href="{{ route('privacidad') }}" target="_BLANK"
+                                                style="font-weight:bold;">aviso de privacidad</a>
+                                            y <a href="{{ route('condiciones') }}" target="_BLANK"
+                                                style="font-weight:bold;">condiciones de uso</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-danger"
