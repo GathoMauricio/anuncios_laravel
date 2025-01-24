@@ -51,6 +51,7 @@ class AnuncioController extends Controller
             'titulo' => $request->titulo,
             'descripcion' => $request->deescripcion,
             'precio' => $request->precio,
+            'divisa' => $request->divisa,
             'negociable' => ($request->negociable && $request->negociable == 'on') ? true : false,
             'metodo_pago' => 'no disponible',
             'referencia_pago' => 'no disponible',

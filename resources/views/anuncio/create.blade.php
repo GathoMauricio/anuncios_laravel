@@ -101,12 +101,25 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label style="font-weight: bold;">Precio</label>
                                     <input type="text" name="precio" id="txt_precio_create"
                                         placeholder="Precio de la publicación..." class="form-control solo_numeros" />
                                     @error('precio')
+                                        <span>{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;">Divisa</label>
+                                    <select name="divisa" class="form-select">
+                                        <option value="MXN">MXN</option>
+
+                                        <option value="USD">USD</option>
+                                    </select>
+                                    @error('divisa')
                                         <span>{{ $message }}</span>
                                     @enderror
                                 </div>

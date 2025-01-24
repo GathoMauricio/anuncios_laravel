@@ -58,7 +58,8 @@
                                 </div>
                             </a>
                             <div class="card-footer">
-                                <span style="float:right">${{ $anuncio->precio }}</span>
+                                <span style="float:right">${{ number_format($anuncio->precio, 0, '', ',') }}
+                                    {{ $anuncio->divisa }}</span>
                                 @php
                                     switch (strlen($anuncio->id)) {
                                         case 1:

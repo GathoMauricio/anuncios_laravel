@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <br>
-                <strong>Precio: ${{ $anuncio->precio }}
+                <strong>Precio: ${{ $anuncio->precio }} {{ $anuncio->divisa }}
                     @if ($anuncio->negociable)
                         Precio negociable
                     @endif

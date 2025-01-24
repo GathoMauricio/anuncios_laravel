@@ -61,7 +61,7 @@
                                     </td>
                                     <td>{{ $anuncio->titulo }}</td>
                                     {{--  <td>{{ $anuncio->descripcion }}</td>  --}}
-                                    <td>${{ $anuncio->precio }}</td>
+                                    <td>${{ number_format($anuncio->precio, 0, '', ',') }} {{ $anuncio->divisa }}</td>
                                     <td>{{ $anuncio->borrador }}</td>
                                     <td>
                                         <table>
