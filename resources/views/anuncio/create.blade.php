@@ -105,7 +105,7 @@
                                 <div class="form-group">
                                     <label style="font-weight: bold;">Precio</label>
                                     <input type="text" name="precio" id="txt_precio_create"
-                                        placeholder="Precio de la publicación..." class="form-control" />
+                                        placeholder="Precio de la publicación..." class="form-control solo_numeros" />
                                     @error('precio')
                                         <span>{{ $message }}</span>
                                     @enderror
@@ -255,7 +255,10 @@
     @include('anuncio.modal_normas')
 @endsection
 @section('custom_js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script>
+        $('.solo_numeros').mask('0000000000');
+
         function municipiosCreate(id) {
             $("#cbo_municipio_create").html('<option value>¿Municipio?</option>');
             $("#cbo_colonia_create").html('<option value>Colonia?</option>');

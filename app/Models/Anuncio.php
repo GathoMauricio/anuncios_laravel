@@ -27,6 +27,7 @@ class Anuncio extends Model
         'titulo',
         'descripcion',
         'precio',
+        'divisa',
         'negociable',
         'metodo_pago',
         'referencia_pago',
