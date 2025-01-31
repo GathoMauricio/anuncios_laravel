@@ -78,20 +78,19 @@
                 </strong>
                 <br><br>
                 <strong>Dirección: </strong>
-                {{ $anuncio->estado->estado }},
-                {{--  @if ($anuncio->municipio->municipio != 'Jiménez')
-                    {{ $anuncio->municipio->municipio }},
-                @endif  --}}
-                {{ $anuncio->colonia->colonia }}.
-                {{ $anuncio->calle_numero }},
-                CP
+                {{ $anuncio->sepomex->estado }},
+                {{ $anuncio->sepomex->municipio }},
+                {{ $anuncio->sepomex->ciudad }}
                 @if (strlen($anuncio->cp) <= 4)
                     0{{ $anuncio->cp }}
                 @else
                     {{ $anuncio->cp }}
                 @endif
+                .
+                {{ $anuncio->calle_numero }},
+                {{ $anuncio->sepomex->tipo }}
+                {{ $anuncio->sepomex->asentamiento }}
                 <br>
-
                 <br>
                 <strong>Contacto</strong>
                 <br>
@@ -111,13 +110,19 @@
                         'https://maps.googleapis.com/maps/api/geocode/json?address=' .
                         '' .
                         urlencode(
-                            $anuncio->calle_numero .
+                            $anuncio->sepomex->estado .
                                 ' ' .
-                                $anuncio->colonia->colonia .
+                                $anuncio->sepomex->municipio .
                                 ' ' .
-                                $anuncio->estado->estado .
-                                ' cp ' .
-                                $anuncio->cp,
+                                $anuncio->sepomex->ciudad .
+                                ' ' .
+                                $anuncio->cp .
+                                ' ' .
+                                $anuncio->calle_numero .
+                                ' ' .
+                                $anuncio->sepomex->tipo .
+                                ' ' .
+                                $anuncio->sepomex->asentamiento,
                         ) .
                         '&key=AIzaSyBoB6rmriGlDHt3t28H3DSvSMOU6h35gL8';
                     $google_maps_json = file_get_contents($google_maps_url);

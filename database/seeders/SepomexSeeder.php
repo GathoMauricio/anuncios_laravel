@@ -19,20 +19,20 @@ class SepomexSeeder extends Seeder
 
         //Cargar BD SEPOMEX
         Sepomex::truncate();
-        $sepomex = DataMigrater::ExcelArray('sepomex.xlsx', 'app/db');
+        $sepomex = DataMigrater::ExcelArray('codpos.xlsx', 'app/db');
         $this->command->getOutput()->writeln("Registrando sepomex");
         $this->command->getOutput()->progressStart(count($sepomex));
         foreach ($sepomex as $item) {
             Sepomex::create([
-                'id' => $item['id'],
-                'idEstado' => $item['idEstado'],
+                'id' => $item['Id_dirMex'],
+                'idEstado' => $item['ClaveEstado'],
                 'estado' => $item['estado'],
                 'idMunicipio' => $item['idMunicipio'],
                 'municipio' => $item['municipio'],
                 'ciudad' => $item['ciudad'],
                 'zona' => $item['zona'],
                 'cp' => $item['cp'],
-                'asentamiento' => $item['asentamiento'],
+                'asentamiento' => $item['colonia'],
                 'tipo' => $item['tipo'],
             ]);
             $this->command->getOutput()->progressAdvance();

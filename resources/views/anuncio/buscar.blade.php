@@ -25,7 +25,11 @@
                                 {{--  {{ $anuncio->categoria->nombre }} - {{ $anuncio->subcategoria->nombre }}  --}}
                                 {{ Str::limit($anuncio->descripcion, 25) }}
                                 <br>
-                                <span class="text-warning">{{ $anuncio->estado->estado }}</span>
+                                <span class="text-warning">
+                                    {{ $anuncio->sepomex->estado }}
+                                    <br>
+                                    {{ $anuncio->sepomex->municipio }}
+                                </span>
                                 @if (request()->session()->get('cliente', 'default_value') != 'flutter')
                                     <div style="float:right;">
                                         <a href="https://wa.me/?text={{ urlencode('catinmo.com ' . $anuncio->titulo . ' ' . route('ver_anuncio', $anuncio->id)) }}"

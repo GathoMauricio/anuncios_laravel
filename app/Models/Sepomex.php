@@ -17,13 +17,13 @@ class Sepomex extends Model
     protected $fillable = [
         'id',
         'idEstado',
-        'estado',
+        'estado', #
         'idMunicipio',
-        'municipio',
+        'municipio', #
         'ciudad',
         'zona',
-        'cp',
-        'asentamiento',
+        'cp', #
+        'asentamiento', #
         'tipo',
     ];
 }

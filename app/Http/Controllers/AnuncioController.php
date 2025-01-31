@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\Categoria;
 use App\Models\Estado;
 use App\Models\Anuncio;
+use App\Models\Sepomex;
 use App\Models\FotoAnuncio;
 
 class AnuncioController extends Controller
@@ -242,7 +243,7 @@ class AnuncioController extends Controller
             $anuncios = $anuncios->where('estado_id', $request->estado_id);
         }
         if ($request->municipio_id) {
-            $anuncios = $anuncios->where('categoria_id', $request->municipio_id);
+            $anuncios = $anuncios->where('municipio_id', $request->municipio_id);
         }
         $anuncios = $anuncios->where('borrador', 'NO')->orderBy('estatus_id', 'DESC')->orderBy('id', 'DESC')->paginate(12);
         return view('anuncio.buscar', compact('anuncios'));

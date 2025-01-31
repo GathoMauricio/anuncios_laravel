@@ -74,6 +74,11 @@ class Anuncio extends Model
         return $this->hasOne(Colonia::class, 'idcp', 'colonia_id');
     }
 
+    public function sepomex()
+    {
+        return $this->hasOne(Sepomex::class, 'id', 'colonia_id');
+    }
+
     public function fotos()
     {
         return $this->hasMany(FotoAnuncio::class, 'anuncio_id', 'id');
