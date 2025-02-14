@@ -18,6 +18,8 @@ use Illuminate\Http\Request;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('/');
 Route::view('condiciones', 'layouts.condiciones')->name('condiciones');
 Route::view('privacidad', 'layouts.privacidad')->name('privacidad');
+Route::get('android-app', [\App\Http\Controllers\AppController::class, 'descargarAndroidApp'])->name('android-app');
+
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/municipios/{id?}', [App\Http\Controllers\SepomexController::class, 'minicipios'])->name('municipios');
