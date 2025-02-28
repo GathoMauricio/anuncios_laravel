@@ -49,7 +49,7 @@ Route::get('/show_usuarios/{id}', [App\Http\Controllers\UserController::class, '
 Route::get('/usuarios_eliminados', [App\Http\Controllers\UserController::class, 'eliminados'])->name('usuarios_eliminados')->middleware('auth');
 Route::delete('/delete_usuario/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('delete_usuario')->middleware('auth');
 Route::get('/analizar_texto/{texto}', [App\Http\Controllers\HelperController::class, 'analizarTexto'])->name('analizar_texto')->middleware('auth');
-
+Route::get('analytics', [App\Http\Controllers\AnalyticsController::class, 'index'])->name('analytics');
 //sesiones ara identificar si el cliente es flutter
 Route::get('/source_flutter', function (Request $request) {
     $request->session()->put('cliente', 'flutter');
