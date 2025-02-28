@@ -7,12 +7,8 @@
     <link rel="icon" type="image/jpg" href="{{ asset('img/favicon.ico') }}" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Open Graph meta tags -->
-    <meta property="og:title" content="Catinmo">
     <meta property="og:description" content="Anuncios de Venta y Renta de Inmuebles.">
-    <meta property="og:image" content="https://www.catinmo.com/img/catinmo.png">
     <meta property="og:url" content="https://catinmo.com">
     <meta property="og:type" content="website">
 
@@ -38,6 +34,28 @@
     <link href="{{ asset('alertify/css/themes/bootstrap.min.css') }}" rel="stylesheet" />
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdRUGoqAAAAAFNxt75SbQ-Lqpd0TOgDbhklJQ-K"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    @if (isset($anuncio))
+        <title>{{ $anuncio->titulo }}</title>
+        @if (isset($anuncio->fotos[0]))
+            <meta property="og:image" content="{{ asset('storage/fotos_anuncios/' . $anuncio->fotos[0]->ruta) }}">
+        @else
+            meta property="og:image" content="https://www.catinmo.com/img/catinmo.png">
+        @endif
+        <meta property="og:title" content="{{ $anuncio->titulo }}">
+        <meta property="og:description" content="{{ $anuncio->descripcion }}">
+        <meta name="description" content="{{ $anuncio->descripcion }}">
+        <meta name="keywords" content="{{ $anuncio->descripcion }}">
+    @else
+        <title>Catinmo</title>
+        <meta property="og:image" content="https://www.catinmo.com/img/catinmo.png">
+        <meta property="og:description"
+            content="Casas casa departamento departamentos oficinas portales de inmuebles portales de casas">
+        <meta name="description"
+            content="Casas casa departamento departamentos oficinas portales de inmuebles portales de casas">
+        <meta name="keywords"
+            content="Casas casa departamento departamentos oficinas portales de inmuebles portales de casas">
+    @endif
 
     <style>
         .whatsapp-button {
@@ -139,7 +157,8 @@
                                         Cerrar sesión
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
                                         @csrf
                                     </form>
                                 </div>

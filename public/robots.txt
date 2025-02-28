@@ -1,2 +1,22 @@
 User-agent: *
-Disallow:
+Disallow: /admin
+Disallow: /register
+
+Allow: /
+Allow: /condiciones
+Allow: /privacidad
+Allow: /android-app
+Allow: /home
+Allow: /municipios
+Allow: /ver_anuncio
+Allow: /buscar
+Allow: /todo
+Allow: /anuncios
+Allow: /mis_anuncios
+Allow: /editar_anuncio
+Allow: /pago_exitoso
+Allow: /hacer_premium
+Allow: /subcategorias
+Allow: /actualizar_cuenta
+
+Sitemap: https://catinmo.com/sitemap.xml
