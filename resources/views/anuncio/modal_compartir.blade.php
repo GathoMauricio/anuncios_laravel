@@ -8,7 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="fb-share-button" {{--  data-href="{{ route('ver_anuncio', $share_anuncio_id) }}"  --}} data-href="https://twitter.com/"
+                <div class="fb-share-button" {{--  data-href="{{ route('ver_anuncio', [$anuncio->id, \Str::slug($anuncio->titulo)]) }}"  --}} data-href="https://twitter.com/"
                     data-layout="button_count" style="">
                 </div>
                 <br><br>

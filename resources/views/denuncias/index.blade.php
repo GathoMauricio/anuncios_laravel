@@ -48,7 +48,8 @@
                                     <td>{{ $denuncia->motivo }}</td>
                                     <td>{{ $denuncia->ip }}</td>
                                     <td>
-                                        <a href="{{ route('ver_anuncio', $denuncia->anuncio->id) }}">Ver anuncio</a>
+                                        <a href="{{ route('ver_anuncio', [$anuncio->id, \Str::slug($anuncio->titulo)]) }}">Ver
+                                            anuncio</a>
                                     </td>
                                 </tr>
                             @empty

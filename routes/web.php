@@ -25,7 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/municipios/{id?}', [App\Http\Controllers\SepomexController::class, 'minicipios'])->name('municipios');
 Route::get('/colonias/{id?}', [App\Http\Controllers\SepomexController::class, 'colonias'])->name('colonias');
 Route::get('/cp/{id?}', [App\Http\Controllers\SepomexController::class, 'cp'])->name('cp');
-Route::get('/ver_anuncio/{id}', [App\Http\Controllers\AnuncioController::class, 'show'])->name('ver_anuncio');
+Route::get('/ver_anuncio/{id}/{titulo}', [App\Http\Controllers\AnuncioController::class, 'show'])->name('ver_anuncio');
 Route::get('/buscar', [App\Http\Controllers\AnuncioController::class, 'buscar'])->name('buscar');
 Route::get('/todo', [App\Http\Controllers\AnuncioController::class, 'todo'])->name('todo');
 Route::get('/anuncios', [App\Http\Controllers\AnuncioController::class, 'index'])->name('anuncios')->middleware('auth');

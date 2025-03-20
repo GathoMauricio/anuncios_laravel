@@ -6,7 +6,7 @@
         <div class="row p-3">
             <div class="col-md-9 p-3" style="background-color:#eaeded">
                 <div style="float:right;">
-                    <a href="https://wa.me/?text={{ urlencode('catinmo.com ' . $anuncio->titulo . ' ' . route('ver_anuncio', $anuncio->id)) }}"
+                    <a href="https://wa.me/?text={{ urlencode('catinmo.com ' . $anuncio->titulo . ' ' . route('ver_anuncio', [$anuncio->id, \Str::slug($anuncio->titulo)])) }}"
                         target="_blank" style="text-decoration: none;color:#1abc9c;font-size:22px;"><span
                             class="icon icon-share2"></span></a>
                 </div>
@@ -203,7 +203,8 @@
                 <img src="{{ asset('img/publica.png') }}" width="100%">
                 <br><br>
                 <img src="{{ asset('img/como.png') }}" width="100%">
-                <div class="fb-comments" data-href="{{ route('ver_anuncio', $anuncio->id) }}" data-width="100%"
+                <div class="fb-comments"
+                    data-href="{{ route('ver_anuncio', [$anuncio->id, \Str::slug($anuncio->titulo)]) }}" data-width="100%"
                     data-numposts="5">
                 </div>
             </div>

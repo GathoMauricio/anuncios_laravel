@@ -18,7 +18,7 @@
                                 @if ($anuncio->estatus_id == 2)
                                     <span class="icon icon-flag p-1" style="color:yellow;float:right"></span>
                                 @endif
-                                <a href="{{ route('ver_anuncio', $anuncio->id) }}"
+                                <a href="{{ route('ver_anuncio', [$anuncio->id, \Str::slug($anuncio->titulo)]) }}"
                                     @if ($anuncio->estatus_id == 2) style="color:#aed6f1;" @endif><strong>{{ Str::limit($anuncio->titulo, 25) }}</strong></a>
                                 <br>
                                 {{--  {{ $anuncio->categoria->nombre }} - {{ $anuncio->subcategoria->nombre }}  --}}
@@ -31,12 +31,12 @@
                                 </span>
                                 @if (request()->session()->get('cliente', 'default_value') != 'flutter')
                                     <div style="float:right;">
-                                        <a href="https://wa.me/?text={{ urlencode('catinmo.com ' . $anuncio->titulo . ' ' . route('ver_anuncio', $anuncio->id)) }}"
+                                        <a href="https://wa.me/?text={{ urlencode('catinmo.com ' . $anuncio->titulo . ' ' . route('ver_anuncio', [$anuncio->id, \Str::slug($anuncio->titulo)])) }}"
                                             target="_blank" style="text-decoration: none;color:#1abc9c;"><span
                                                 class="icon icon-share2"></span></a>
                                     </div>
                                     {{--  <div style="float:right;">
-                                        <div class="fb-share-button" data-href="{{ route('ver_anuncio', $anuncio->id) }}"
+                                        <div class="fb-share-button" data-href="{{ route('ver_anuncio', [$anuncio->id, \Str::slug($anuncio->titulo)]) }}"
                                             data-layout="button_count" style="display:none;"
                                             id="btn_share_fb_{{ $anuncio->id }}">
                                         </div>
@@ -49,7 +49,7 @@
                                     </div>  --}}
                                 @endif
                             </div>
-                            <a href="{{ route('ver_anuncio', $anuncio->id) }}">
+                            <a href="{{ route('ver_anuncio', [$anuncio->id, \Str::slug($anuncio->titulo)]) }}">
                                 <div class="card-body">
                                     @if (isset($anuncio->fotos[0]->ruta))
                                         <img src="{{ asset('storage/fotos_anuncios/' . $anuncio->fotos[0]->ruta) }}"

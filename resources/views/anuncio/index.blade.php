@@ -85,7 +85,7 @@
                                                     <table>
                                                         <tr>
                                                             <td>
-                                                                <a href="{{ route('ver_anuncio', $anuncio->id) }}"
+                                                                <a href="{{ route('ver_anuncio', [$anuncio->id, \Str::slug($anuncio->titulo)]) }}"
                                                                     title="Ver" class="btn btn-primary"><span
                                                                         class="icon icon-eye"></span></a>
                                                             </td>

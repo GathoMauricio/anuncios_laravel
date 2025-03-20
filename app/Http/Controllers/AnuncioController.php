@@ -113,12 +113,12 @@ class AnuncioController extends Controller
                 //Si la tarjeta pasa redirige a la ruta succes donde actualizamos el estatus del anuncio pasando como parametro el id
                 'success_url' => route('pago_exitoso', $anuncio->id),
                 //Si se cancela la compra o no pasa se redirige a los detalles del anuncio q debe estar pendiente de pago
-                'cancel_url'  => route('ver_anuncio', $anuncio->id),
+                'cancel_url'  => route('ver_anuncio', [$anuncio->id, \Str::slug($anuncio->titulo)]),
             ]);
             //Se ejecuta el pago en la plataforma de stripe
             return redirect()->away($session->url);
         } else {
-            return redirect()->route('ver_anuncio', $anuncio->id);
+            return redirect()->route('ver_anuncio', [$anuncio->id, \Str::slug($anuncio->titulo)]);
         }
     }
 
@@ -211,7 +211,7 @@ class AnuncioController extends Controller
             //Si la tarjeta pasa redirige a la ruta succes donde actualizamos el estatus del anuncio pasando como parametro el id
             'success_url' => route('pago_exitoso', $anuncio->id),
             //Si se cancela la compra o no pasa se redirige a los detalles del anuncio q debe estar pendiente de pago
-            'cancel_url'  => route('ver_anuncio', $anuncio->id),
+            'cancel_url'  => route('ver_anuncio', [$anuncio->id, \Str::slug($anuncio->titulo)]),
         ]);
         //Se ejecuta el pago en la plataforma de stripe
         return redirect()->away($session->url);
@@ -224,7 +224,7 @@ class AnuncioController extends Controller
         $anuncio->estatus_id = 2;
         $anuncio->save();
         //Se redirige hacia los detalles del anuncio
-        return redirect()->route('ver_anuncio', $anuncio->id);
+        return redirect()->route('ver_anuncio', [$anuncio->id, \Str::slug($anuncio->titulo)]);
     }
 
     public function show($id)
