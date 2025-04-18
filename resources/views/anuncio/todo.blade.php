@@ -54,10 +54,10 @@
                                 <div class="card-body">
                                     @if (isset($anuncio->fotos[0]->ruta))
                                         <img src="{{ asset('storage/fotos_anuncios/' . $anuncio->fotos[0]->ruta) }}"
-                                            width="100%" height="200">
+                                            width="100%" height="200" alt="{{ $anuncio->descripcion }}">
                                     @else
                                         <img src="https://img.freepik.com/vector-premium/hermoso-diseno-exterior-casa-dibujos-animados-moderna-frente-carretera_646586-582.jpg"
-                                            width="100%" height="200">
+                                            width="100%" height="200" alt="{{ $anuncio->descripcion }}">
                                     @endif
                                 </div>
                             </a>

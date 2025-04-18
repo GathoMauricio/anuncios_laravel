@@ -24,7 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $anuncios = Anuncio::where('borrador', 'NO')->orderBy('estatus_id', 'DESC')->orderBy('id','DESC')->limit(20)->get();
+        $anuncios = Anuncio::where('borrador', 'NO')->orderBy('estatus_id', 'DESC')->orderBy('id', 'DESC')->limit(20)->get();
         return view('index', compact('anuncios'));
+    }
+
+    public function quienesSomos()
+    {
+        return view('layouts.quienes_somos');
     }
 }

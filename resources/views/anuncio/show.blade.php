@@ -60,7 +60,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <img src="{{ asset('storage/fotos_anuncios/' . $foto->ruta) }}" width="100%"
-                                            height="200">
+                                            height="200" alt="{{ $anuncio->descripcion }}">
                                     </div>
                                     <div class="card-footer">
                                         {{ $foto->descripcion }}

@@ -22,6 +22,7 @@ Route::get('android-app', [\App\Http\Controllers\AppController::class, 'descarga
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/quienes_somos', [App\Http\Controllers\HomeController::class, 'quienesSomos'])->name('quienes_somos');
 Route::get('/municipios/{id?}', [App\Http\Controllers\SepomexController::class, 'minicipios'])->name('municipios');
 Route::get('/colonias/{id?}', [App\Http\Controllers\SepomexController::class, 'colonias'])->name('colonias');
 Route::get('/cp/{id?}', [App\Http\Controllers\SepomexController::class, 'cp'])->name('cp');
