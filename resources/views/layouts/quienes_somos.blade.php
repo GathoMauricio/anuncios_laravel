@@ -11,7 +11,7 @@
                     Catinmo portal mexicano de anuncios de inmuebles, casas en venta y renta, departamentos en venta y
                     renta, locales comerciales, oficinas, terrenos en venta y renta, nuestro objetivo es apoyar al público
                     en general brindando una página publicitaria eficiente, sencilla y moderna. Nuestra visión es ser el
-                    mejor portal de anuncios en México, a precios asequibles.
+                    mejor portal de anuncios de bienes raíces en Mexico, a.precios.asequibles
                 </h4>
             </div>
         </div>
