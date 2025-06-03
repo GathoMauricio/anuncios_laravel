@@ -12,7 +12,8 @@
             <div class="row p-2" style="background-color:#eaeded">
                 @foreach ($anuncios as $key => $anuncio)
                     <div class="col-md-3">
-                        <div class="card" @if ($anuncio->estatus_id == 2) style="border-color:#d35400;" @endif>
+                        <div class="card"
+                            @if ($anuncio->estatus_id == 2) style="border-color:#d35400;" @else style="border: 3px solid#1abc9c;" @endif>
                             <div class="card-header"
                                 @if ($anuncio->estatus_id == 2) style="background-color:#d35400; color:white;" @endif>
                                 @if ($anuncio->estatus_id == 2)
