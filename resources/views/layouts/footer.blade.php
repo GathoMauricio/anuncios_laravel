@@ -21,11 +21,11 @@
                     title="Faceboox">
                     <span class="icon icon-facebook"></span>
                 </a>
-                <br><br>
+                {{--  <br><br>
                 <h6><strong>DESCARGAR APP</strong></h6>
                 <a href="{{ route('android-app') }}">
                     <img src="{{ asset('img/boton_android.png') }}" width="120" />
-                </a>
+                </a>  --}}
                 {{--  &nbsp;&nbsp;&nbsp;
                 <div class="fb-like" data-href="https://www.facebook.com/profile.php?id=100066751009079&locale=es_LA"
                     data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false">
