@@ -54,9 +54,9 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label style="font-weight: bold;">Descripción</label>
-                                    <textarea name="deescripcion" id="txt_descripcion_create" maxlength="500" placeholder="Descripción de la publicación..."
-                                        class="form-control" /></textarea>
-                                    <small class="text-primary">Este campo acepta hasta 500 caracteres</small>
+                                    <textarea name="deescripcion" id="txt_descripcion_create" maxlength="1000"
+                                        placeholder="Descripción de la publicación..." class="form-control" /></textarea>
+                                    <small class="text-primary">Este campo acepta hasta 1000 caracteres</small>
                                     @error('deescripcion')
                                         <span>{{ $message }}</span>
                                     @enderror
