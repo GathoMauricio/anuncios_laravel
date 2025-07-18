@@ -196,7 +196,7 @@
                                 <a href="javascript:void(0);" onclick="agregarImagen();" style="float:right;">
                                     + Agregar imagen
                                 </a>
-                                <strong>Imágenes</strong>
+                                <strong>Subir Imágenes (Max 5 MB)</strong>
                             </h6>
                             <hr>
                             <div class="container" id="container_imagenes">
@@ -239,7 +239,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <button class="g-recaptcha btn btn-danger"
+                                <button id="boton_enviar" class="g-recaptcha btn btn-danger"
                                     data-sitekey="6LdRUGoqAAAAAFNxt75SbQ-Lqpd0TOgDbhklJQ-K"
                                     data-callback='validarCrearAnuncio' data-action='submit'
                                     style="background-color: brown;float:right;">
